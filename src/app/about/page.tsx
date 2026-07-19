@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  ArrowRight,
+  Building2,
+  Users,
+} from "lucide-react";
 import PageHero from "@/components/PageHero";
+import { aboutProcess, aboutValues } from "@/lib/icons";
+import { site } from "@/lib/site";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
@@ -8,25 +15,6 @@ export const metadata: Metadata = {
   description:
     "Learn about Robotech—our mission, values, and approach to specialist IT staffing.",
 };
-
-const values = [
-  {
-    title: "Integrity",
-    copy: "Honest counsel for clients and candidates. We set expectations clearly and follow through.",
-  },
-  {
-    title: "Craft",
-    copy: "Recruitment is a discipline. We invest in market knowledge, technical literacy, and process excellence.",
-  },
-  {
-    title: "Partnership",
-    copy: "We measure success by long-term outcomes—retained talent, trusted relationships, and repeat engagement.",
-  },
-  {
-    title: "Momentum",
-    copy: "Hiring windows close quickly. We move with urgency without compromising quality.",
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -42,6 +30,16 @@ export default function AboutPage() {
             <p className="eyebrow">Our story</p>
             <h2>Built for technology hiring</h2>
             <div className="gold-rule" />
+            <div className={styles.audienceRow}>
+              <div className={styles.audienceChip}>
+                <Building2 size={18} aria-hidden="true" />
+                <span>For employers</span>
+              </div>
+              <div className={styles.audienceChip}>
+                <Users size={18} aria-hidden="true" />
+                <span>For professionals</span>
+              </div>
+            </div>
           </div>
           <div className={styles.prose}>
             <p>
@@ -70,34 +68,17 @@ export default function AboutPage() {
           <h2>A clear, collaborative process</h2>
           <div className="gold-rule" />
           <ul className={styles.timeline}>
-            <li>
-              <strong>Listen</strong>
-              <p>
-                We begin with a precise briefing: role outcomes, team context,
-                must-have skills, and timeline.
-              </p>
-            </li>
-            <li>
-              <strong>Source & assess</strong>
-              <p>
-                Our consultants map the market, engage talent, and evaluate
-                technical and interpersonal fit.
-              </p>
-            </li>
-            <li>
-              <strong>Present & advise</strong>
-              <p>
-                You receive a calibrated shortlist with clear context—so decisions
-                move faster and with fewer surprises.
-              </p>
-            </li>
-            <li>
-              <strong>Support to start</strong>
-              <p>
-                We stay involved through offer, acceptance, and onboarding to
-                protect a strong start for everyone.
-              </p>
-            </li>
+            {aboutProcess.map(({ title, copy, icon: Icon }) => (
+              <li key={title}>
+                <span className={styles.iconBadge} aria-hidden="true">
+                  <Icon size={22} strokeWidth={1.7} />
+                </span>
+                <div>
+                  <strong>{title}</strong>
+                  <p>{copy}</p>
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -108,10 +89,13 @@ export default function AboutPage() {
           <h2>What guides every engagement</h2>
           <div className="gold-rule" />
           <ul className={styles.values}>
-            {values.map((value) => (
-              <li key={value.title} className={styles.value}>
-                <h3>{value.title}</h3>
-                <p>{value.copy}</p>
+            {aboutValues.map(({ title, copy, icon: Icon }) => (
+              <li key={title} className={styles.value}>
+                <span className={styles.valueIcon} aria-hidden="true">
+                  <Icon size={24} strokeWidth={1.6} />
+                </span>
+                <h3>{title}</h3>
+                <p>{copy}</p>
               </li>
             ))}
           </ul>
@@ -127,9 +111,20 @@ export default function AboutPage() {
             Whether you are hiring or exploring your next role, our team is ready
             to help.
           </p>
-          <Link href="/contact" className="btn btn--gold">
-            Get in touch
-          </Link>
+          <div className={styles.ctaRow}>
+            <Link
+              href="/contact?audience=employer"
+              className="btn btn--gold"
+            >
+              Partner with us <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+            <Link
+              href="/contact?audience=candidate"
+              className="btn btn--outline"
+            >
+              Contact {site.name}
+            </Link>
+          </div>
         </div>
       </section>
     </>

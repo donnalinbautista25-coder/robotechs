@@ -8,45 +8,92 @@
   font-size: 1.05rem;
 }
 
+.audienceRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.audienceChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  background: rgba(201, 162, 39, 0.08);
+  color: var(--navy);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.audienceChip svg {
+  color: var(--gold-deep);
+}
+
 .values {
   list-style: none;
   display: grid;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-top: 2rem;
 }
 
 .value {
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--border);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--white);
+  box-shadow: 0 10px 28px rgba(7, 21, 37, 0.05);
 }
 
-.value:last-child {
-  border-bottom: 1px solid var(--border);
+.valueIcon {
+  display: inline-flex;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
 }
 
 .value h3 {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   margin-bottom: 0.45rem;
 }
 
 .timeline {
   list-style: none;
   display: grid;
-  gap: 1.75rem;
+  gap: 1.25rem;
   margin-top: 2rem;
 }
 
 .timeline li {
   display: grid;
-  gap: 0.35rem;
-  padding-left: 1.25rem;
-  border-left: 2px solid var(--gold);
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+}
+
+.iconBadge {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--gold-bright);
+  background: var(--navy);
 }
 
 .timeline strong {
+  display: block;
   font-family: var(--font-display);
   font-size: 1.35rem;
   color: var(--navy);
+  margin-bottom: 0.35rem;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
 }
 
 @media (min-width: 800px) {
@@ -59,6 +106,9 @@
 
   .values {
     grid-template-columns: 1fr 1fr;
-    gap: 0 2rem;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr 1fr;
   }
 }

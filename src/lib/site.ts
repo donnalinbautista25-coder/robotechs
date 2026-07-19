@@ -13,7 +13,7 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/contact?audience=candidate", label: "Contact Us" },
 ] as const;
 
 export const services = [

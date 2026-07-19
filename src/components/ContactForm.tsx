@@ -1,13 +1,25 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import styles from "./ContactForm.module.css";
 
 type Status = "idle" | "sending" | "success" | "error";
+export type Audience = "employer" | "candidate" | "other";
 
-export default function ContactForm() {
+type ContactFormProps = {
+  defaultAudience?: Audience;
+};
+
+export default function ContactForm({
+  defaultAudience = "candidate",
+}: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
+  const [audience, setAudience] = useState<Audience>(defaultAudience);
+
+  useEffect(() => {
+    setAudience(defaultAudience);
+  }, [defaultAudience]);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -31,6 +43,7 @@ export default function ContactForm() {
       }
 
       form.reset();
+      setAudience(defaultAudience);
       setStatus("success");
       setMessage("Thank you. Our team will respond within one business day.");
     } catch (error) {
@@ -63,7 +76,11 @@ export default function ContactForm() {
         </label>
         <label>
           I am
-          <select name="audience" defaultValue="employer">
+          <select
+            name="audience"
+            value={audience}
+            onChange={(event) => setAudience(event.target.value as Audience)}
+          >
             <option value="employer">An employer hiring talent</option>
             <option value="candidate">A candidate seeking roles</option>
             <option value="other">Other</option>
@@ -86,9 +103,7 @@ export default function ContactForm() {
 
       {message ? (
         <p
-          className={
-            status === "success" ? styles.success : styles.error
-          }
+          className={status === "success" ? styles.success : styles.error}
           role="status"
         >
           {message}

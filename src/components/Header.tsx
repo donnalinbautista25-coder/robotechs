@@ -47,7 +47,7 @@ export default function Header() {
             const active =
               link.href === "/"
                 ? pathname === "/"
-                : pathname.startsWith(link.href);
+                : pathname.startsWith(link.href.split("?")[0]);
             return (
               <Link
                 key={link.href}
@@ -58,7 +58,10 @@ export default function Header() {
               </Link>
             );
           })}
-          <Link href="/contact" className={`btn btn--gold ${styles.cta}`}>
+          <Link
+            href="/contact?audience=employer"
+            className={`btn btn--gold ${styles.cta}`}
+          >
             Partner with us
           </Link>
         </nav>
@@ -87,7 +90,10 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className={`btn btn--gold ${styles.mobileCta}`}>
+          <Link
+            href="/contact?audience=employer"
+            className={`btn btn--gold ${styles.mobileCta}`}
+          >
             Partner with us
           </Link>
         </nav>

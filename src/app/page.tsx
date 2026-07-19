@@ -6,16 +6,13 @@ import {
   Building2,
   CheckCircle2,
   ClipboardCheck,
-  Cloud,
-  Code2,
-  Database,
   Globe2,
   Handshake,
   Headphones,
-  LockKeyhole,
   ShieldCheck,
   Users,
 } from "lucide-react";
+import { serviceIcons } from "@/lib/icons";
 import { services, site } from "@/lib/site";
 import styles from "./home.module.css";
 
@@ -55,15 +52,6 @@ const whyPoints = [
   "Nationwide reach with local market insight",
   "Long-term partnership mindset, not transactional filling",
 ];
-
-const serviceIcons = {
-  "it-staffing": Users,
-  "workforce-solutions": Cloud,
-  "software-development": Code2,
-  cybersecurity: LockKeyhole,
-  "cloud-devops": Cloud,
-  "data-analytics": Database,
-} as const;
 
 const stats = [
   { value: "500+", label: "Employees", icon: Users },
@@ -105,14 +93,20 @@ export default function HomePage() {
             hire skilled professionals and build high-performing technology teams.
           </p>
           <div className={`${styles.heroActions} fade-up-delay-2`}>
-            <Link href="/contact" className={`btn btn--gold ${styles.heroBtn}`}>
+            <Link
+              href="/contact?audience=employer"
+              className={`btn btn--gold ${styles.heroBtn}`}
+            >
               Partner with us <ArrowRight size={16} aria-hidden="true" />
             </Link>
-            <Link href="/contact" className={`btn btn--outline ${styles.heroBtn}`}>
+            <Link
+              href="/contact?audience=candidate"
+              className={`btn btn--outline ${styles.heroBtn}`}
+            >
               Submit talent <ArrowRight size={16} aria-hidden="true" />
             </Link>
             <Link href="/services" className={`btn btn--outline ${styles.heroBtn}`}>
-              View openings <ArrowRight size={16} aria-hidden="true" />
+              Services <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -188,8 +182,7 @@ export default function HomePage() {
 
           <ul className={styles.serviceGrid}>
             {services.map((service) => {
-              const Icon =
-                serviceIcons[service.slug as keyof typeof serviceIcons] ?? Users;
+              const Icon = serviceIcons[service.slug] ?? Users;
               return (
                 <li key={service.slug} className={styles.serviceCard}>
                   <span className={styles.serviceIcon} aria-hidden="true">
@@ -241,7 +234,7 @@ export default function HomePage() {
               outline a clear path forward.
             </p>
           </div>
-          <Link href="/contact" className="btn btn--gold">
+          <Link href="/contact?audience=employer" className="btn btn--gold">
             Partner with us <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>

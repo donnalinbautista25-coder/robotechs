@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import PageHero from "@/components/PageHero";
+import { serviceIcons } from "@/lib/icons";
 import { services, specialties } from "@/lib/site";
 import styles from "./services.module.css";
 
@@ -28,18 +30,20 @@ export default function ServicesPage() {
             sustained hiring program across multiple teams.
           </p>
 
-          <ul className={styles.list}>
-            {services.map((service) => (
-              <li key={service.slug} className={styles.item}>
-                <h2>{service.title}</h2>
-                <div>
-                  <p style={{ marginBottom: "0.65rem", color: "var(--navy)", fontWeight: 600 }}>
-                    {service.summary}
-                  </p>
+          <ul className={styles.grid}>
+            {services.map((service) => {
+              const Icon = serviceIcons[service.slug] ?? CheckCircle2;
+              return (
+                <li key={service.slug} className={styles.card}>
+                  <span className={styles.icon} aria-hidden="true">
+                    <Icon size={28} strokeWidth={1.55} />
+                  </span>
+                  <h2>{service.title}</h2>
+                  <p className={styles.summary}>{service.summary}</p>
                   <p>{service.details}</p>
-                </div>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
@@ -56,6 +60,7 @@ export default function ServicesPage() {
           <div className={styles.chips}>
             {specialties.map((item) => (
               <span key={item} className={styles.chip}>
+                <CheckCircle2 size={15} aria-hidden="true" />
                 {item}
               </span>
             ))}
@@ -71,8 +76,8 @@ export default function ServicesPage() {
           <p className="lead" style={{ marginBottom: "1.5rem" }}>
             Share your requirements and we will recommend the right engagement model.
           </p>
-          <Link href="/contact" className="btn btn--gold">
-            Contact our team
+          <Link href="/contact?audience=employer" className="btn btn--gold">
+            Partner with us <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>
       </section>

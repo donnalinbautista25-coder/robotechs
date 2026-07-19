@@ -1,0 +1,57 @@
+import Link from "next/link";
+import { navLinks, site } from "@/lib/site";
+import styles from "./Footer.module.css";
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className={styles.footer}>
+      <div className={`container ${styles.top}`}>
+        <div className={styles.brandBlock}>
+          <Link href="/" className={styles.brand}>
+            <span className={styles.mark} aria-hidden="true" />
+            {site.name}
+          </Link>
+          <p>{site.tagline}</p>
+        </div>
+
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href}>{link.label}</Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/terms">Terms & Conditions</Link>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+            </li>
+            <li>
+              <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
+                {site.phone}
+              </a>
+            </li>
+            <li>{site.address}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className={`container ${styles.bottom}`}>
+        <p>
+          © {year} {site.name}. All rights reserved.
+        </p>
+        <Link href="/terms">Terms & Conditions</Link>
+      </div>
+    </footer>
+  );
+}

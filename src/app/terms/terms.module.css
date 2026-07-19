@@ -1,0 +1,25 @@
+.content {
+  max-width: 46rem;
+}
+
+.content h2 {
+  font-size: 1.45rem;
+  margin: 2rem 0 0.75rem;
+}
+
+.content p,
+.content li {
+  color: var(--grey-700);
+  margin-bottom: 0.85rem;
+}
+
+.content ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.updated {
+  font-size: 0.92rem;
+  color: var(--grey-500);
+  margin-bottom: 1.5rem;
+}

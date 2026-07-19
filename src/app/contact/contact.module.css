@@ -1,0 +1,50 @@
+.layout {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 1.75rem;
+}
+
+.panel h2 {
+  font-size: 1.45rem;
+  margin-bottom: 1rem;
+}
+
+.details {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+.details li {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.details strong {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.details span,
+.details a {
+  color: var(--grey-700);
+}
+
+.details a:hover {
+  color: var(--navy);
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: 1.35fr 0.85fr;
+    gap: 3rem;
+    align-items: start;
+  }
+}

@@ -1,0 +1,73 @@
+.form {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.row {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.form label {
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--grey-300);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--grey-900);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-soft);
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.form button {
+  justify-self: start;
+  margin-top: 0.25rem;
+}
+
+.form button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+.success,
+.error {
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.success {
+  color: #166534;
+}
+
+.error {
+  color: #b91c1c;
+}
+
+@media (min-width: 700px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}

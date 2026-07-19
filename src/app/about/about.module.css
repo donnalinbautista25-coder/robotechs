@@ -1,0 +1,64 @@
+.prose {
+  display: grid;
+  gap: 1.15rem;
+  max-width: 42rem;
+}
+
+.prose p {
+  font-size: 1.05rem;
+}
+
+.values {
+  list-style: none;
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.value {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.value:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.value h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.45rem;
+}
+
+.timeline {
+  list-style: none;
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.timeline li {
+  display: grid;
+  gap: 0.35rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--gold);
+}
+
+.timeline strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--navy);
+}
+
+@media (min-width: 800px) {
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .values {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+  }
+}

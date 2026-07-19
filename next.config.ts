@@ -6,6 +6,14 @@ import type { NextConfig } from "next";
  * Render, Netlify (with Next runtime), or a VPS with `next start`.
  */
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
   // Uncomment for Docker / self-hosting with a smaller runtime image:
   // output: "standalone",
 };

@@ -33,8 +33,13 @@ export default function Header() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`container ${styles.inner}`}>
         <Link href="/" className={styles.brand} aria-label={`${site.name} home`}>
-          <span className={styles.mark} aria-hidden="true" />
-          <span className={styles.name}>{site.name}</span>
+          <span className={styles.mark} aria-hidden="true">
+            R
+          </span>
+          <span className={styles.brandText}>
+            <span className={styles.name}>{site.name}</span>
+            <span className={styles.tag}>{site.tagline}</span>
+          </span>
         </Link>
 
         <nav className={styles.nav} aria-label="Primary">
@@ -54,7 +59,7 @@ export default function Header() {
             );
           })}
           <Link href="/contact" className={`btn btn--gold ${styles.cta}`}>
-            Talk to us
+            Partner with us
           </Link>
         </nav>
 
@@ -83,7 +88,7 @@ export default function Header() {
             </Link>
           ))}
           <Link href="/contact" className={`btn btn--gold ${styles.mobileCta}`}>
-            Talk to us
+            Partner with us
           </Link>
         </nav>
       </div>

@@ -1,162 +1,233 @@
 import Link from "next/link";
-import { services, specialties, site } from "@/lib/site";
+import Image from "next/image";
+import {
+  ArrowRight,
+  Award,
+  Building2,
+  CheckCircle2,
+  ClipboardCheck,
+  Cloud,
+  Code2,
+  Database,
+  Globe2,
+  Handshake,
+  Headphones,
+  LockKeyhole,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
+import { services, site } from "@/lib/site";
 import styles from "./home.module.css";
 
-const stats = [
-  { value: "12+", label: "Years placing IT talent" },
-  { value: "2,400+", label: "Successful placements" },
-  { value: "94%", label: "Client retention rate" },
-  { value: "48 hrs", label: "Average shortlist turnaround" },
+const features = [
+  {
+    title: "Direct Employment",
+    copy: "W-2 employment options with clear ownership and accountability.",
+    icon: Users,
+  },
+  {
+    title: "Payroll & Compliance",
+    copy: "Compliant onboarding, payroll, and workforce administration support.",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Enterprise Ready",
+    copy: "Processes built for regulated industries and complex hiring needs.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Flexible Solutions",
+    copy: "Permanent, contract, and hybrid models tailored to your roadmap.",
+    icon: Handshake,
+  },
+  {
+    title: "Ongoing Support",
+    copy: "Dedicated consultants from briefing through placement and beyond.",
+    icon: Headphones,
+  },
 ];
 
-const reasons = [
-  {
-    title: "Specialist recruiters",
-    copy: "Every search is led by consultants who understand technical roles, not generalist volume hiring.",
-  },
-  {
-    title: "Quality over volume",
-    copy: "We present calibrated shortlists—candidates assessed for skill, communication, and cultural fit.",
-  },
-  {
-    title: "Partnership mindset",
-    copy: "From briefing to onboarding, we stay close to hiring managers and candidates alike.",
-  },
+const whyPoints = [
+  "Specialist IT recruiters who understand technical roles",
+  "Calibrated shortlists—quality over volume",
+  "Transparent communication with hiring managers",
+  "Flexible engagement models for every workforce need",
+  "Nationwide reach with local market insight",
+  "Long-term partnership mindset, not transactional filling",
+];
+
+const serviceIcons = {
+  "it-staffing": Users,
+  "workforce-solutions": Cloud,
+  "software-development": Code2,
+  cybersecurity: LockKeyhole,
+  "cloud-devops": Cloud,
+  "data-analytics": Database,
+} as const;
+
+const stats = [
+  { value: "500+", label: "Employees", icon: Users },
+  { value: "120+", label: "Client Partners", icon: Building2 },
+  { value: "2,400+", label: "Consultants Placed", icon: Award },
+  { value: "18+", label: "Industries Served", icon: Globe2 },
+];
+
+const trusted = [
+  "Nexus Financial",
+  "Northline Systems",
+  "Aether Cloud",
+  "Meridian Health",
+  "Summit Retail",
+  "Cascade Energy",
 ];
 
 export default function HomePage() {
   return (
     <div className={styles.home}>
       <section className={styles.hero}>
-        <div className={styles.heroMedia} aria-hidden="true" />
+        <Image
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=80"
+          alt=""
+          fill
+          priority
+          className={styles.heroImage}
+          sizes="100vw"
+        />
+        <div className={styles.heroOverlay} aria-hidden="true" />
         <div className={`container ${styles.heroContent}`}>
-          <h1 className={`${styles.brandLockup} fade-up`}>
-            <span>{site.name}</span>
+          <p className={`${styles.brandLine} fade-up`}>{site.name}</p>
+          <h1 className={`${styles.heroTitle} fade-up-delay`}>
+            Connecting top IT talent with enterprise{" "}
+            <span className={styles.goldWord}>success</span>
           </h1>
-          <p className={`${styles.heroHeadline} fade-up-delay`}>
-            Connecting skilled technology professionals with organizations that need them.
-          </p>
-          <div className="gold-rule gold-rule--animated" />
           <p className={`${styles.heroCopy} fade-up-delay-2`}>
-            Specialist IT staffing and workforce solutions—trusted recruitment for
-            permanent, contract, and leadership roles.
+            Specialist IT staffing and outsourcing services that help organizations
+            hire skilled professionals and build high-performing technology teams.
           </p>
           <div className={`${styles.heroActions} fade-up-delay-2`}>
-            <Link href="/contact" className="btn btn--gold">
-              Hire top talent
+            <Link href="/contact" className={`btn btn--gold ${styles.heroBtn}`}>
+              Partner with us <ArrowRight size={16} aria-hidden="true" />
             </Link>
-            <Link href="/services" className="btn btn--outline">
-              Explore services
+            <Link href="/contact" className={`btn btn--outline ${styles.heroBtn}`}>
+              Submit talent <ArrowRight size={16} aria-hidden="true" />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section--tight">
-        <div className={`container ${styles.split}`}>
-          <article className={styles.splitCard}>
-            <p className="eyebrow">For employers</p>
-            <h2>Build the team that delivers</h2>
-            <p>
-              From startups to enterprises, we help you hire engineers, architects,
-              analysts, and technology leaders with speed and precision.
-            </p>
-            <Link href="/contact" className="btn btn--navy">
-              Request talent
-            </Link>
-          </article>
-          <article className={styles.splitCard}>
-            <p className="eyebrow">For professionals</p>
-            <h2>Find work that fits your craft</h2>
-            <p>
-              Looking for your next permanent or contract role? Our consultants match
-              you with opportunities aligned to your skills and ambitions.
-            </p>
-            <Link href="/contact" className="btn btn--ghost">
-              Speak with a recruiter
-            </Link>
-          </article>
-        </div>
-      </section>
-
-      <section className="section section--navy">
-        <div className="container">
-          <p className="eyebrow">By the numbers</p>
-          <h2>Your partner in technology hiring</h2>
-          <div className="gold-rule" />
-          <div className={styles.stats}>
-            {stats.map((stat) => (
-              <div key={stat.label} className={styles.stat}>
-                <strong>{stat.value}</strong>
-                <span>{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className={styles.servicesHead}>
-            <div>
-              <p className="eyebrow">What we do</p>
-              <h2>A solution for every workforce need</h2>
-            </div>
-            <Link href="/services" className="btn btn--ghost">
-              View all services
+            <Link href="/services" className={`btn btn--outline ${styles.heroBtn}`}>
+              View openings <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
-
-          <ul className={styles.serviceList}>
-            {services.slice(0, 4).map((service) => (
-              <li key={service.slug} className={styles.serviceItem}>
-                <h3>{service.title}</h3>
-                <p>{service.summary}</p>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
-      <section className="section section--navy">
-        <div className="container">
-          <p className="eyebrow">Specialisms</p>
-          <h2>Deep coverage across technology disciplines</h2>
-          <div className="gold-rule" />
-          <p className="lead">
-            We recruit across the modern IT landscape—helping organizations fill
-            critical roles with professionals who are ready to contribute from day one.
-          </p>
-          <div className={styles.specialties}>
-            {specialties.map((item) => (
-              <span key={item} className={styles.specialty}>
-                {item}
+      <section className={styles.features}>
+        <div className={`container ${styles.featuresGrid}`}>
+          {features.map(({ title, copy, icon: Icon }) => (
+            <article key={title} className={styles.feature}>
+              <span className={styles.featureIcon} aria-hidden="true">
+                <Icon strokeWidth={1.6} size={28} />
               </span>
-            ))}
+              <h2>{title}</h2>
+              <p>{copy}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={`section ${styles.aboutSection}`}>
+        <div className={`container ${styles.aboutGrid}`}>
+          <div>
+            <p className="eyebrow">About {site.name}</p>
+            <h2>IT staffing built for modern enterprises</h2>
+            <div className="gold-rule" />
+            <p>
+              {site.name} partners with organizations to source, screen, and place
+              technology professionals across permanent, contract, and project-based
+              engagements. We combine specialist recruiting with practical workforce
+              solutions so hiring stays fast, compliant, and high quality.
+            </p>
+            <p>
+              From software engineering to cybersecurity and cloud infrastructure, our
+              consultants understand the roles you need—and the outcomes you expect.
+            </p>
+            <Link href="/about" className={`btn btn--navy ${styles.aboutCta}`}>
+              Learn more about us <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div>
+            <p className="eyebrow">Why choose us</p>
+            <h2>Why choose {site.name}</h2>
+            <div className="gold-rule" />
+            <ul className={styles.whyList}>
+              {whyPoints.map((point) => (
+                <li key={point}>
+                  <CheckCircle2
+                    className={styles.check}
+                    size={20}
+                    strokeWidth={1.8}
+                    aria-hidden="true"
+                  />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={styles.rFrame} aria-hidden="true">
+            <span className={styles.rLetter}>R</span>
           </div>
         </div>
       </section>
 
       <section className="section section--grey">
-        <div className={`container ${styles.why}`}>
-          <div className={styles.whyCopy}>
-            <p className="eyebrow">Why Robotech</p>
-            <h2>We help you make the right decisions for tomorrow</h2>
+        <div className="container">
+          <div className={styles.sectionHead}>
+            <p className="eyebrow">What we offer</p>
+            <h2>Our services</h2>
             <div className="gold-rule" />
-            <p>
-              The right hire can transform a team. The right role can transform a
-              career. Robotech exists to make those matches with clarity, care, and
-              commercial urgency.
-            </p>
           </div>
-          <ul className={styles.whyList}>
-            {reasons.map((reason) => (
-              <li key={reason.title}>
-                <h3>{reason.title}</h3>
-                <p>{reason.copy}</p>
-              </li>
+
+          <ul className={styles.serviceGrid}>
+            {services.map((service) => {
+              const Icon =
+                serviceIcons[service.slug as keyof typeof serviceIcons] ?? Users;
+              return (
+                <li key={service.slug} className={styles.serviceCard}>
+                  <span className={styles.serviceIcon} aria-hidden="true">
+                    <Icon strokeWidth={1.5} size={30} />
+                  </span>
+                  <h3>{service.title}</h3>
+                  <p>{service.summary}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+
+      <section className={styles.trusted}>
+        <div className="container">
+          <p className="eyebrow">Partnerships</p>
+          <h2>Trusted by leading organizations</h2>
+          <div className="gold-rule" />
+          <ul className={styles.logoRow}>
+            {trusted.map((name) => (
+              <li key={name}>{name}</li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className={`section ${styles.statsSection}`}>
+        <div className={`container ${styles.statsGrid}`}>
+          {stats.map(({ value, label, icon: Icon }) => (
+            <article key={label} className={styles.stat}>
+              <span className={styles.statIcon} aria-hidden="true">
+                <Icon strokeWidth={1.6} size={26} />
+              </span>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -171,7 +242,7 @@ export default function HomePage() {
             </p>
           </div>
           <Link href="/contact" className="btn btn--gold">
-            Contact Robotech
+            Partner with us <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>
       </section>

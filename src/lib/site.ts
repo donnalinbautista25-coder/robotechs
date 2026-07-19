@@ -1,6 +1,6 @@
 export const site = {
   name: "Robotech",
-  tagline: "IT staffing that moves business forward",
+  tagline: "IT Staffing & Outsourcing Services",
   description:
     "Robotech connects organizations with skilled technology professionals through specialist recruitment and workforce solutions.",
   email: "hello@robotech.com",
@@ -18,52 +18,52 @@ export const navLinks = [
 
 export const services = [
   {
-    slug: "permanent-placement",
-    title: "Permanent Placement",
+    slug: "it-staffing",
+    title: "IT Staffing",
     summary:
-      "Find lasting technology talent aligned to your culture, stack, and growth plans.",
+      "Place skilled technology professionals into permanent and contract roles with speed and precision.",
     details:
-      "We source, screen, and present candidates for full-time roles across engineering, product, data, security, and IT operations—so you hire with confidence.",
+      "We source, screen, and present candidates across engineering, infrastructure, product, and IT operations so you hire with confidence.",
   },
   {
-    slug: "contract-staffing",
-    title: "Contract Staffing",
+    slug: "workforce-solutions",
+    title: "Workforce Solutions",
     summary:
-      "Scale your team quickly with vetted contractors for projects and peak demand.",
+      "Flexible workforce programs that scale with project demand and enterprise hiring goals.",
     details:
-      "Flexible engagements from weeks to multi-year programs. We handle sourcing and compliance so you stay focused on delivery.",
+      "From surge hiring to managed programs, we build delivery models around your timelines, compliance needs, and quality bar.",
   },
   {
-    slug: "contract-to-hire",
-    title: "Contract-to-Hire",
+    slug: "software-development",
+    title: "Software Development",
     summary:
-      "Evaluate fit in real work before making a permanent offer.",
+      "Engineers and product talent for modern application, platform, and digital delivery teams.",
     details:
-      "Reduce hiring risk by starting with a contract engagement, then convert when both sides are ready.",
+      "Full-stack, backend, frontend, mobile, and QA professionals matched to your stack, culture, and delivery cadence.",
   },
   {
-    slug: "executive-search",
-    title: "Technology Leadership Search",
+    slug: "cybersecurity",
+    title: "Cybersecurity",
     summary:
-      "Discreet search for CTOs, VPs of Engineering, and senior technical leaders.",
+      "Security specialists who protect systems, data, and enterprise resilience.",
     details:
-      "A retained, research-led process to identify leaders who can shape strategy, culture, and delivery at scale.",
+      "Recruit for security engineering, GRC, SOC, identity, and cloud security roles with specialists who understand the domain.",
   },
   {
-    slug: "managed-workforce",
-    title: "Managed Workforce Solutions",
+    slug: "cloud-devops",
+    title: "Cloud & DevOps",
     summary:
-      "Program support for high-volume or specialized hiring initiatives.",
+      "Cloud architects, platform engineers, and DevOps talent to modernize delivery.",
     details:
-      "From surge hiring to niche skill campaigns, we build a delivery model around your timelines and quality bar.",
+      "AWS, Azure, GCP, Kubernetes, CI/CD, and SRE expertise to keep your infrastructure reliable and scalable.",
   },
   {
-    slug: "talent-advisory",
-    title: "Talent Market Advisory",
+    slug: "data-analytics",
+    title: "Data & Analytics",
     summary:
-      "Compensation, availability, and skills insight to guide smarter hiring decisions.",
+      "Data engineers, analysts, and scientists who turn information into decisions.",
     details:
-      "Practical market intelligence so employers and candidates make informed moves in a fast-changing tech landscape.",
+      "Hire for pipelines, warehousing, BI, analytics engineering, and applied AI with candidates assessed for real delivery skill.",
   },
 ] as const;
 

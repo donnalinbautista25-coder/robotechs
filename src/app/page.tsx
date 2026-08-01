@@ -2,11 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight,
-  Award,
-  Building2,
   CheckCircle2,
   ClipboardCheck,
-  Globe2,
   Handshake,
   Headphones,
   ShieldCheck,
@@ -54,10 +51,10 @@ const whyPoints = [
 ];
 
 const stats = [
-  { value: "500+", label: "Employees", icon: Users },
-  { value: "120+", label: "Client Partners", icon: Building2 },
-  { value: "2,400+", label: "Consultants Placed", icon: Award },
-  { value: "18+", label: "Industries Served", icon: Globe2 },
+  { value: "500+", label: "Employees" },
+  { value: "120+", label: "Client Partners" },
+  { value: "2,400+", label: "Consultants Placed" },
+  { value: "18+", label: "Industries Served" },
 ];
 
 const trusted = [
@@ -83,19 +80,18 @@ export default function HomePage() {
         />
         <div className={styles.heroOverlay} aria-hidden="true" />
         <div className={`container ${styles.heroContent}`}>
-          <p className={`${styles.brandLine} fade-up`}>{site.name}</p>
-          <h1 className={`${styles.heroTitle} fade-up-delay`}>
-            Connecting top IT talent with enterprise{" "}
-            <span className={styles.goldWord}>success</span>
+          <p className={styles.brandLine}>{site.name}</p>
+          <h1 className={styles.heroTitle}>
+            Connecting top IT talent with enterprise success
           </h1>
-          <p className={`${styles.heroCopy} fade-up-delay-2`}>
+          <p className={styles.heroCopy}>
             Specialist IT staffing and outsourcing services that help organizations
             hire skilled professionals and build high-performing technology teams.
           </p>
-          <div className={`${styles.heroActions} fade-up-delay-2`}>
+          <div className={styles.heroActions}>
             <Link
               href="/contact?audience=employer"
-              className={`btn btn--gold ${styles.heroBtn}`}
+              className={`btn btn--primary ${styles.heroBtn}`}
             >
               Partner with us <ArrowRight size={16} aria-hidden="true" />
             </Link>
@@ -103,10 +99,7 @@ export default function HomePage() {
               href="/contact?audience=candidate"
               className={`btn btn--outline ${styles.heroBtn}`}
             >
-              Submit talent <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-            <Link href="/services" className={`btn btn--outline ${styles.heroBtn}`}>
-              Services <ArrowRight size={16} aria-hidden="true" />
+              Submit talent
             </Link>
           </div>
         </div>
@@ -117,7 +110,7 @@ export default function HomePage() {
           {features.map(({ title, copy, icon: Icon }) => (
             <article key={title} className={styles.feature}>
               <span className={styles.featureIcon} aria-hidden="true">
-                <Icon strokeWidth={1.6} size={28} />
+                <Icon strokeWidth={1.5} size={22} />
               </span>
               <h2>{title}</h2>
               <p>{copy}</p>
@@ -131,7 +124,7 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">About {site.name}</p>
             <h2>IT staffing built for modern enterprises</h2>
-            <div className="gold-rule" />
+            <div className="accent-rule" />
             <p>
               {site.name} partners with organizations to source, screen, and place
               technology professionals across permanent, contract, and project-based
@@ -150,24 +143,20 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">Why choose us</p>
             <h2>Why choose {site.name}</h2>
-            <div className="gold-rule" />
+            <div className="accent-rule" />
             <ul className={styles.whyList}>
               {whyPoints.map((point) => (
                 <li key={point}>
                   <CheckCircle2
                     className={styles.check}
-                    size={20}
-                    strokeWidth={1.8}
+                    size={18}
+                    strokeWidth={1.6}
                     aria-hidden="true"
                   />
                   <span>{point}</span>
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div className={styles.rFrame} aria-hidden="true">
-            <span className={styles.rLetter}>R</span>
           </div>
         </div>
       </section>
@@ -177,7 +166,7 @@ export default function HomePage() {
           <div className={styles.sectionHead}>
             <p className="eyebrow">What we offer</p>
             <h2>Our services</h2>
-            <div className="gold-rule" />
+            <div className="accent-rule" />
           </div>
 
           <ul className={styles.serviceGrid}>
@@ -186,7 +175,7 @@ export default function HomePage() {
               return (
                 <li key={service.slug} className={styles.serviceCard}>
                   <span className={styles.serviceIcon} aria-hidden="true">
-                    <Icon strokeWidth={1.5} size={30} />
+                    <Icon strokeWidth={1.4} size={24} />
                   </span>
                   <h3>{service.title}</h3>
                   <p>{service.summary}</p>
@@ -201,7 +190,7 @@ export default function HomePage() {
         <div className="container">
           <p className="eyebrow">Partnerships</p>
           <h2>Trusted by leading organizations</h2>
-          <div className="gold-rule" />
+          <div className="accent-rule" />
           <ul className={styles.logoRow}>
             {trusted.map((name) => (
               <li key={name}>{name}</li>
@@ -212,11 +201,8 @@ export default function HomePage() {
 
       <section className={`section ${styles.statsSection}`}>
         <div className={`container ${styles.statsGrid}`}>
-          {stats.map(({ value, label, icon: Icon }) => (
+          {stats.map(({ value, label }) => (
             <article key={label} className={styles.stat}>
-              <span className={styles.statIcon} aria-hidden="true">
-                <Icon strokeWidth={1.6} size={26} />
-              </span>
               <strong>{value}</strong>
               <span>{label}</span>
             </article>
@@ -234,7 +220,7 @@ export default function HomePage() {
               outline a clear path forward.
             </p>
           </div>
-          <Link href="/contact?audience=employer" className="btn btn--gold">
+          <Link href="/contact?audience=employer" className="btn btn--primary">
             Partner with us <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>

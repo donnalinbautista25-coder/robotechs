@@ -29,7 +29,7 @@ export default function AboutPage() {
           <div>
             <p className="eyebrow">Our story</p>
             <h2>Built for technology hiring</h2>
-            <div className="gold-rule" />
+            <div className="accent-rule" />
             <div className={styles.audienceRow}>
               <div className={styles.audienceChip}>
                 <Building2 size={18} aria-hidden="true" />
@@ -66,7 +66,7 @@ export default function AboutPage() {
         <div className="container">
           <p className="eyebrow">How we work</p>
           <h2>A clear, collaborative process</h2>
-          <div className="gold-rule" />
+          <div className="accent-rule" />
           <ul className={styles.timeline}>
             {aboutProcess.map(({ title, copy, icon: Icon }) => (
               <li key={title}>
@@ -87,7 +87,7 @@ export default function AboutPage() {
         <div className="container">
           <p className="eyebrow">Values</p>
           <h2>What guides every engagement</h2>
-          <div className="gold-rule" />
+          <div className="accent-rule" />
           <ul className={styles.values}>
             {aboutValues.map(({ title, copy, icon: Icon }) => (
               <li key={title} className={styles.value}>
@@ -106,7 +106,7 @@ export default function AboutPage() {
         <div className="container">
           <p className="eyebrow">Work with us</p>
           <h2>Let’s build your next chapter</h2>
-          <div className="gold-rule" />
+          <div className="accent-rule" />
           <p className="lead" style={{ marginBottom: "1.5rem" }}>
             Whether you are hiring or exploring your next role, our team is ready
             to help.
@@ -114,7 +114,7 @@ export default function AboutPage() {
           <div className={styles.ctaRow}>
             <Link
               href="/contact?audience=employer"
-              className="btn btn--gold"
+              className="btn btn--primary"
             >
               Partner with us <ArrowRight size={16} aria-hidden="true" />
             </Link>

@@ -79,7 +79,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           <div>
             <p className="eyebrow">Send a message</p>
             <h2>How can Robotech help?</h2>
-            <div className="gold-rule" />
+            <div className="accent-rule" />
             <p className="lead" style={{ marginBottom: "1.75rem" }}>
               Share a few details and a consultant will respond within one business day.
             </p>

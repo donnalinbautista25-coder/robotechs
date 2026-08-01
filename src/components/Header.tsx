@@ -63,7 +63,7 @@ export default function Header() {
             })}
             <Link
               href="/contact?audience=employer"
-              className={`btn btn--gold ${styles.cta}`}
+              className={`btn btn--primary ${styles.cta}`}
             >
               Partner with us
             </Link>
@@ -112,7 +112,7 @@ export default function Header() {
           })}
           <Link
             href="/contact?audience=employer"
-            className={`btn btn--gold ${styles.mobileCta}`}
+            className={`btn btn--primary ${styles.mobileCta}`}
           >
             Partner with us
           </Link>

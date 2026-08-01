@@ -24,7 +24,7 @@ export default function ServicesPage() {
         <div className="container">
           <p className="eyebrow">How we help</p>
           <h2>Recruitment built around your workforce goals</h2>
-          <div className="gold-rule" />
+          <div className="accent-rule" />
           <p className="lead" style={{ marginBottom: "2rem" }}>
             Every engagement is tailored—whether you need one critical hire or a
             sustained hiring program across multiple teams.
@@ -52,7 +52,7 @@ export default function ServicesPage() {
         <div className="container">
           <p className="eyebrow">Coverage</p>
           <h2>Technology disciplines we staff</h2>
-          <div className="gold-rule" />
+          <div className="accent-rule" />
           <p className="lead">
             Our consultants work across core and emerging IT specialisms, giving
             you access to talent that matches today’s stacks and tomorrow’s roadmap.
@@ -72,11 +72,11 @@ export default function ServicesPage() {
         <div className="container">
           <p className="eyebrow">Start a search</p>
           <h2>Tell us about the roles you need to fill</h2>
-          <div className="gold-rule" />
+          <div className="accent-rule" />
           <p className="lead" style={{ marginBottom: "1.5rem" }}>
             Share your requirements and we will recommend the right engagement model.
           </p>
-          <Link href="/contact?audience=employer" className="btn btn--gold">
+          <Link href="/contact?audience=employer" className="btn btn--primary">
             Partner with us <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>

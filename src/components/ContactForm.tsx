@@ -95,7 +95,7 @@ export default function ContactForm({
 
       <button
         type="submit"
-        className="btn btn--gold"
+        className="btn btn--primary"
         disabled={status === "sending"}
       >
         {status === "sending" ? "Sending…" : "Send message"}

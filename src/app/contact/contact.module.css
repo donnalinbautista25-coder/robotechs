@@ -14,15 +14,15 @@
 
 .highlightIcon {
   display: inline-flex;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--feature-icon);
   margin-bottom: 0.85rem;
 }
 
 .highlight h2 {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.9375rem;
   font-weight: 500;
-  color: var(--white);
+  color: var(--feature-title);
   margin-bottom: 0.4rem;
 }
 
@@ -35,43 +35,64 @@
 
 .layout {
   display: grid;
-  gap: 3.5rem;
+  gap: 4rem;
+}
+
+.formBlock h2 {
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
+  font-weight: 500;
 }
 
 .panel {
-  background: var(--grey-50);
+  padding: 0;
+  background: transparent;
   border: none;
-  border-top: 2px solid var(--blue-deep);
-  padding: 2rem 0 0;
   box-shadow: none;
 }
 
-.panel h2 {
-  font-size: 1.5rem;
+.panelHeader {
+  margin-bottom: 0.25rem;
+}
+
+.panelHeader h2 {
+  font-size: 1.35rem;
   font-weight: 500;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
+}
+
+.panelIntro {
+  color: var(--grey-500);
+  font-size: 0.95rem;
+  margin: 0.35rem 0 0;
+  max-width: 22rem;
 }
 
 .details {
   list-style: none;
   display: grid;
-  gap: 1.5rem;
+  gap: 0;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border);
 }
 
 .details li {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 0.9rem;
+  gap: 1rem;
   align-items: start;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .detailIcon {
-  display: grid;
-  place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  color: var(--white);
-  background: var(--blue-deep);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin-top: 0.2rem;
+  color: var(--gold);
+  background: transparent;
 }
 
 .details strong {
@@ -81,12 +102,14 @@
   text-transform: none;
   color: var(--grey-500);
   font-weight: 500;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .details span,
 .details a {
-  color: var(--grey-700);
+  color: var(--blue-deep);
+  font-size: 0.98rem;
+  line-height: 1.5;
 }
 
 .details a:hover {
@@ -106,8 +129,13 @@
   }
 
   .layout {
-    grid-template-columns: 1.4fr 0.85fr;
-    gap: 5rem;
+    grid-template-columns: 1.35fr 0.9fr;
+    gap: 5.5rem;
     align-items: start;
+  }
+
+  .panel {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
   }
 }

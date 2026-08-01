@@ -48,7 +48,7 @@
   --feature-band: var(--blue-deep);
   --accent-rule-w: 2.5rem;
   --accent-rule-h: 2px;
-  --section-navy-tint: transparent;
+  --section-navy-tint: none;
 }
 
 html[data-palette="rich"] {
@@ -158,9 +158,8 @@ p {
 }
 
 .section--navy {
-  background:
-    var(--section-navy-tint),
-    var(--blue-deep);
+  background-color: var(--blue-deep);
+  background-image: var(--section-navy-tint);
   color: var(--white);
 }
 

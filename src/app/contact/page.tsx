@@ -76,7 +76,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
       <section className="section">
         <div className={`container ${styles.layout}`}>
-          <div>
+          <div className={styles.formBlock}>
             <p className="eyebrow">Send a message</p>
             <h2>How can Robotechs Inc. help?</h2>
             <div className="accent-rule" />
@@ -87,12 +87,18 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           </div>
 
           <aside className={styles.panel}>
-            <h2>Direct contact</h2>
+            <div className={styles.panelHeader}>
+              <p className="eyebrow">Reach us</p>
+              <h2>Direct contact</h2>
+              <p className={styles.panelIntro}>
+                Prefer to talk directly? Use any of the details below.
+              </p>
+            </div>
             <ul className={styles.details}>
               {details.map(({ label, value, href, icon: Icon }) => (
                 <li key={label}>
                   <span className={styles.detailIcon} aria-hidden="true">
-                    <Icon size={18} strokeWidth={1.7} />
+                    <Icon size={18} strokeWidth={1.6} />
                   </span>
                   <div>
                     <strong>{label}</strong>

@@ -1,38 +1,5 @@
-.hero {
-  position: relative;
-  min-height: min(86vh, 780px);
-  display: flex;
-  align-items: center;
-  padding: calc(var(--header-h) + 5rem) 0 5rem;
-  color: var(--white);
-  overflow: hidden;
-}
-
-.heroImage {
-  object-fit: cover;
-  object-position: center;
-}
-
-.heroOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    rgba(5, 28, 44, 0.92) 0%,
-    rgba(5, 28, 44, 0.78) 50%,
-    rgba(5, 28, 44, 0.55) 100%
-  );
-  z-index: 1;
-}
-
-.heroContent {
-  position: relative;
-  z-index: 2;
-  max-width: 42rem;
-}
-
 .brandLine {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -130,7 +97,36 @@
 }
 
 .aboutCta {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+}
+
+.womenOwned {
+  margin-top: 1.75rem;
+}
+
+.womenOwnedLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gold-deep);
+  margin-bottom: 0.85rem;
+}
+
+.womenOwnedBadges {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.womenOwnedSeal,
+.womenOwnedLogo {
+  width: auto;
+  height: auto;
+  max-width: 4.25rem;
+  object-fit: contain;
+}
+
+.womenOwnedLogo {
+  max-width: 5.25rem;
 }
 
 .whyList {
@@ -156,7 +152,121 @@
 .check {
   flex-shrink: 0;
   margin-top: 0.2rem;
-  color: var(--blue-accent);
+  color: var(--gold);
+}
+
+.parallaxEyebrow {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--gold-bright);
+  margin-bottom: 1rem;
+}
+
+.parallaxTitle {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  max-width: 16ch;
+  margin-bottom: 1.25rem;
+}
+
+.parallaxCopy {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 34rem;
+}
+
+.parallaxStats {
+  display: grid;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.parallaxStat strong {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.45rem;
+}
+
+.parallaxStat span {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.approachSection {
+  background: var(--white);
+}
+
+.approachLayout {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.approachMedia {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.approachImage {
+  object-fit: cover;
+}
+
+.approachLead {
+  margin-bottom: 2rem;
+  max-width: 34rem;
+}
+
+.approachList {
+  list-style: none;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.approachList li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.approachList li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.approachIndex {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--gold);
+  padding-top: 0.2rem;
+}
+
+.approachList strong {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--blue-deep);
+  margin-bottom: 0.35rem;
+}
+
+.approachList p {
+  margin: 0;
+  max-width: 32rem;
 }
 
 .sectionHead {
@@ -189,7 +299,7 @@
 }
 
 .serviceCard h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.35rem;
   font-weight: 500;
   margin-bottom: 0.6rem;
@@ -199,6 +309,59 @@
   font-size: 1rem;
   line-height: 1.65;
   max-width: 28rem;
+}
+
+.audienceSection {
+  background: var(--white);
+}
+
+.audienceGrid {
+  display: grid;
+  gap: 2rem;
+}
+
+.audienceCard {
+  display: grid;
+  gap: 0;
+}
+
+.audienceMedia {
+  position: relative;
+  min-height: 260px;
+  overflow: hidden;
+}
+
+.audienceImage {
+  object-fit: cover;
+}
+
+.audienceBody {
+  padding: 1.75rem 0 0;
+}
+
+.audienceBody h3 {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.65rem;
+}
+
+.audienceBody p {
+  margin-bottom: 1.15rem;
+  max-width: 30rem;
+}
+
+.audienceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--gold);
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.audienceLink:hover {
+  color: var(--gold-deep);
 }
 
 .trusted {
@@ -226,38 +389,6 @@
   font-size: 0.9375rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-}
-
-.statsSection {
-  background: var(--grey-50);
-}
-
-.statsGrid {
-  display: grid;
-  gap: 2.5rem;
-}
-
-.stat {
-  text-align: left;
-  padding: 0;
-  border-left: 2px solid var(--blue-accent);
-  padding-left: 1.25rem;
-}
-
-.stat strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(2.25rem, 4vw, 3rem);
-  font-weight: 500;
-  color: var(--blue-deep);
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-
-.stat span {
-  color: var(--grey-500);
-  font-size: 0.9375rem;
-  font-weight: 500;
 }
 
 .ctaBand {
@@ -289,7 +420,7 @@
     column-gap: 3rem;
   }
 
-  .statsGrid {
+  .parallaxStats {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -306,11 +437,29 @@
     align-items: start;
   }
 
+  .approachLayout {
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 4.5rem;
+  }
+
+  .approachMedia {
+    min-height: 520px;
+  }
+
   .serviceGrid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .statsGrid {
+  .audienceGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .audienceMedia {
+    min-height: 320px;
+  }
+
+  .parallaxStats {
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
   }

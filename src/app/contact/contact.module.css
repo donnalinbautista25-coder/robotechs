@@ -90,7 +90,7 @@
 }
 
 .details a:hover {
-  color: var(--blue-accent);
+  color: var(--gold-deep);
 }
 
 @media (min-width: 700px) {

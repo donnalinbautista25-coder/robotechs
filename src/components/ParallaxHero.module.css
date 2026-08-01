@@ -1,0 +1,56 @@
+.hero {
+  position: relative;
+  min-height: min(92vh, 900px);
+  display: flex;
+  align-items: center;
+  padding: calc(var(--header-h) + 5rem) 0 5.5rem;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.media {
+  position: absolute;
+  top: -30%;
+  right: 0;
+  bottom: -30%;
+  left: 0;
+  z-index: 0;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    105deg,
+    rgba(5, 28, 44, 0.82) 0%,
+    rgba(5, 28, 44, 0.62) 50%,
+    rgba(5, 28, 44, 0.4) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 42rem;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media {
+    top: 0;
+    bottom: 0;
+  }
+
+  .content {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -5,6 +5,10 @@
   --blue-mid: #1a3a5c;
   --blue-accent: #2251ff;
   --blue-accent-hover: #1a41cc;
+  --gold: #b8952c;
+  --gold-bright: #c9a84a;
+  --gold-deep: #8f7320;
+  --gold-soft: rgba(184, 149, 44, 0.12);
   --grey-900: #1a1a1a;
   --grey-700: #3d4a54;
   --grey-500: #6b7780;
@@ -29,10 +33,6 @@
   --navy-deep: var(--blue-deep);
   --navy-mid: var(--blue-mid);
   --navy-soft: var(--blue-dark);
-  --gold: var(--blue-accent);
-  --gold-bright: var(--blue-accent);
-  --gold-deep: var(--blue-accent-hover);
-  --gold-soft: rgba(34, 81, 255, 0.1);
 }
 
 * {
@@ -141,12 +141,12 @@ p {
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: none;
-  color: var(--blue-accent);
+  color: var(--gold-deep);
   margin-bottom: 1rem;
 }
 
 .section--navy .eyebrow {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--gold-bright);
 }
 
 .lead {
@@ -177,13 +177,13 @@ p {
 
 .btn--primary,
 .btn--gold {
-  background: var(--blue-accent);
+  background: var(--blue-deep);
   color: var(--white);
 }
 
 .btn--primary:hover,
 .btn--gold:hover {
-  background: var(--blue-accent-hover);
+  background: var(--blue-mid);
 }
 
 .btn--outline {
@@ -193,8 +193,8 @@ p {
 }
 
 .btn--outline:hover {
-  border-color: var(--white);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--gold-bright);
+  color: var(--gold-bright);
 }
 
 .btn--navy {
@@ -221,13 +221,13 @@ p {
 .accent-rule {
   width: 2.5rem;
   height: 2px;
-  background: var(--blue-accent);
+  background: var(--gold);
   margin: 1.25rem 0 1.75rem;
 }
 
 .section--navy .gold-rule,
 .section--navy .accent-rule {
-  background: rgba(255, 255, 255, 0.45);
+  background: var(--gold-bright);
 }
 
 .page-hero {

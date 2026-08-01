@@ -9,6 +9,8 @@ import {
   ShieldCheck,
   Users,
 } from "lucide-react";
+import ParallaxBand from "@/components/ParallaxBand";
+import ParallaxHero from "@/components/ParallaxHero";
 import { serviceIcons } from "@/lib/icons";
 import { services, site } from "@/lib/site";
 import styles from "./home.module.css";
@@ -50,6 +52,40 @@ const whyPoints = [
   "Long-term partnership mindset, not transactional filling",
 ];
 
+const approach = [
+  {
+    title: "Listen first",
+    copy: "We start with your roadmap, constraints, and culture—not a generic job description.",
+  },
+  {
+    title: "Calibrate tightly",
+    copy: "Every shortlist is scored against technical depth, delivery history, and team fit.",
+  },
+  {
+    title: "Stay accountable",
+    copy: "From offer through onboarding, your consultant remains the single point of ownership.",
+  },
+];
+
+const audiences = [
+  {
+    title: "For employers",
+    copy: "Scale engineering, security, cloud, and data teams with recruiters who speak your stack.",
+    href: "/contact?audience=employer",
+    cta: "Start a search",
+    image:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80",
+  },
+  {
+    title: "For professionals",
+    copy: "Access roles that match your skills, compensation expectations, and career direction.",
+    href: "/contact?audience=candidate",
+    cta: "Explore opportunities",
+    image:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=80",
+  },
+];
+
 const stats = [
   { value: "500+", label: "Employees" },
   { value: "120+", label: "Client Partners" },
@@ -69,41 +105,30 @@ const trusted = [
 export default function HomePage() {
   return (
     <div className={styles.home}>
-      <section className={styles.hero}>
-        <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=80"
-          alt=""
-          fill
-          priority
-          className={styles.heroImage}
-          sizes="100vw"
-        />
-        <div className={styles.heroOverlay} aria-hidden="true" />
-        <div className={`container ${styles.heroContent}`}>
-          <p className={styles.brandLine}>{site.name}</p>
-          <h1 className={styles.heroTitle}>
-            Connecting top IT talent with enterprise success
-          </h1>
-          <p className={styles.heroCopy}>
-            Specialist IT staffing and outsourcing services that help organizations
-            hire skilled professionals and build high-performing technology teams.
-          </p>
-          <div className={styles.heroActions}>
-            <Link
-              href="/contact?audience=employer"
-              className={`btn btn--primary ${styles.heroBtn}`}
-            >
-              Partner with us <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-            <Link
-              href="/contact?audience=candidate"
-              className={`btn btn--outline ${styles.heroBtn}`}
-            >
-              Submit talent
-            </Link>
-          </div>
+      <ParallaxHero image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=80">
+        <p className={styles.brandLine}>{site.name}</p>
+        <h1 className={styles.heroTitle}>
+          Connecting top IT talent with enterprise success
+        </h1>
+        <p className={styles.heroCopy}>
+          Specialist IT staffing and outsourcing services that help organizations
+          hire skilled professionals and build high-performing technology teams.
+        </p>
+        <div className={styles.heroActions}>
+          <Link
+            href="/contact?audience=employer"
+            className={`btn btn--primary ${styles.heroBtn}`}
+          >
+            Partner with us <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+          <Link
+            href="/contact?audience=candidate"
+            className={`btn btn--outline ${styles.heroBtn}`}
+          >
+            Submit talent
+          </Link>
         </div>
-      </section>
+      </ParallaxHero>
 
       <section className={styles.features}>
         <div className={`container ${styles.featuresGrid}`}>
@@ -135,6 +160,25 @@ export default function HomePage() {
               From software engineering to cybersecurity and cloud infrastructure, our
               consultants understand the roles you need—and the outcomes you expect.
             </p>
+            <div className={styles.womenOwned}>
+              <p className={styles.womenOwnedLabel}>Proudly women-owned</p>
+              <div className={styles.womenOwnedBadges}>
+                <Image
+                  src="/badges/women-owned-seal.png"
+                  alt="Women Owned Business"
+                  width={72}
+                  height={72}
+                  className={styles.womenOwnedSeal}
+                />
+                <Image
+                  src="/badges/women-owned-logo.png"
+                  alt="Women Owned"
+                  width={90}
+                  height={89}
+                  className={styles.womenOwnedLogo}
+                />
+              </div>
+            </div>
             <Link href="/about" className={`btn btn--navy ${styles.aboutCta}`}>
               Learn more about us <ArrowRight size={16} aria-hidden="true" />
             </Link>
@@ -157,6 +201,56 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <ParallaxBand
+        image="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2400&q=80"
+        minHeight="medium"
+      >
+        <p className={styles.parallaxEyebrow}>Perspective</p>
+        <h2 className={styles.parallaxTitle}>
+          The right hire changes the trajectory of a team.
+        </h2>
+        <p className={styles.parallaxCopy}>
+          We help technology leaders fill critical roles with people who raise the
+          bar—not just fill a seat. Clarity, speed, and judgment guide every search.
+        </p>
+      </ParallaxBand>
+
+      <section className={`section ${styles.approachSection}`}>
+        <div className={`container ${styles.approachLayout}`}>
+          <div className={styles.approachMedia}>
+            <Image
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80"
+              alt="Consultants collaborating in a modern office"
+              fill
+              className={styles.approachImage}
+              sizes="(max-width: 900px) 100vw, 48vw"
+            />
+          </div>
+          <div>
+            <p className="eyebrow">How we work</p>
+            <h2>A disciplined approach to technology hiring</h2>
+            <div className="accent-rule" />
+            <p className={styles.approachLead}>
+              Every engagement follows a clear rhythm so stakeholders know what to
+              expect—and when decisions will land.
+            </p>
+            <ol className={styles.approachList}>
+              {approach.map((item, index) => (
+                <li key={item.title}>
+                  <span className={styles.approachIndex}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <strong>{item.title}</strong>
+                    <p>{item.copy}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
@@ -186,6 +280,54 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className={`section ${styles.audienceSection}`}>
+        <div className="container">
+          <div className={styles.sectionHead}>
+            <p className="eyebrow">Who we serve</p>
+            <h2>Built for both sides of the hire</h2>
+            <div className="accent-rule" />
+          </div>
+          <div className={styles.audienceGrid}>
+            {audiences.map((item) => (
+              <article key={item.title} className={styles.audienceCard}>
+                <div className={styles.audienceMedia}>
+                  <Image
+                    src={item.image}
+                    alt=""
+                    fill
+                    className={styles.audienceImage}
+                    sizes="(max-width: 900px) 100vw, 50vw"
+                  />
+                </div>
+                <div className={styles.audienceBody}>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                  <Link href={item.href} className={styles.audienceLink}>
+                    {item.cta} <ArrowRight size={15} aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ParallaxBand
+        image="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2400&q=80"
+        minHeight="short"
+        overlay="soft"
+      >
+        <p className={styles.parallaxEyebrow}>By the numbers</p>
+        <div className={styles.parallaxStats}>
+          {stats.map(({ value, label }) => (
+            <article key={label} className={styles.parallaxStat}>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </article>
+          ))}
+        </div>
+      </ParallaxBand>
+
       <section className={styles.trusted}>
         <div className="container">
           <p className="eyebrow">Partnerships</p>
@@ -196,17 +338,6 @@ export default function HomePage() {
               <li key={name}>{name}</li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      <section className={`section ${styles.statsSection}`}>
-        <div className={`container ${styles.statsGrid}`}>
-          {stats.map(({ value, label }) => (
-            <article key={label} className={styles.stat}>
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </article>
-          ))}
         </div>
       </section>
 

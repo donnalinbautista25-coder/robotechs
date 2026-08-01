@@ -33,7 +33,7 @@
 .form select:focus,
 .form textarea:focus {
   outline: none;
-  border-color: var(--blue-accent);
+  border-color: var(--gold);
   box-shadow: none;
 }
 

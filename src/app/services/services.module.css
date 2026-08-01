@@ -52,7 +52,7 @@
 }
 
 .chip svg {
-  color: var(--blue-accent);
+  color: var(--gold);
 }
 
 @media (min-width: 700px) {

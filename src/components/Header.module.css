@@ -98,7 +98,7 @@
   bottom: -0.4rem;
   width: 100%;
   height: 2px;
-  background: var(--blue-accent);
+  background: var(--gold);
 }
 
 .cta {
@@ -196,7 +196,7 @@
 
 .mobileLink:hover,
 .mobileActive {
-  color: var(--blue-accent);
+  color: var(--gold-deep);
 }
 
 .mobileCta {

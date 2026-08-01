@@ -28,7 +28,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: calc(min(68vh, 620px) - var(--header-h));
-  transition: grid-template-columns 0.95s cubic-bezier(0.33, 1, 0.32, 1);
+  transition: grid-template-columns 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .focus-hiring .split {
@@ -56,7 +56,7 @@
   inset: 0;
   z-index: 0;
   opacity: 1;
-  transition: opacity 0.7s ease;
+  transition: opacity 0.45s ease;
 }
 
 .collapsed .media {
@@ -85,7 +85,7 @@
     rgba(255, 255, 255, 0.78) 42%,
     rgba(255, 255, 255, 0.35) 100%
   );
-  transition: background 0.7s ease;
+  transition: background 0.45s ease;
 }
 
 .expanded .mediaShade {
@@ -108,7 +108,11 @@
   max-width: 34rem;
   padding: 2.5rem 0;
   color: var(--blue-deep);
-  transition: color 0.55s ease, padding 0.7s ease;
+  transition:
+    color 0.35s ease,
+    padding 0.45s ease,
+    margin 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    max-width 0.45s ease;
 }
 
 .hiring .content {
@@ -195,7 +199,9 @@
   margin: 0;
   color: inherit;
   white-space: nowrap;
-  transition: font-size 0.7s ease, transform 0.7s ease;
+  transition:
+    font-size 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease;
 }
 
 .collapsed .panelTitle {
@@ -210,6 +216,10 @@
 
 .panelTeaser {
   margin-top: 1.15rem;
+  transition:
+    opacity 0.25s ease,
+    height 0.3s ease,
+    margin 0.3s ease;
 }
 
 .seeMore {
@@ -243,24 +253,32 @@
 }
 
 .panelBody {
-  margin-top: 1.15rem;
+  margin-top: 0;
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(8px);
   max-height: 0;
   overflow: hidden;
   pointer-events: none;
+  /* Close quickly so fast hover-out does not leave lingering content */
   transition:
-    opacity 0.55s ease 0.12s,
-    transform 0.75s cubic-bezier(0.33, 1, 0.32, 1),
-    max-height 0.75s ease,
-    margin 0.55s ease;
+    opacity 0.2s ease,
+    transform 0.25s ease,
+    max-height 0.3s ease,
+    margin 0.25s ease;
 }
 
 .expanded .panelBody {
   opacity: 1;
   transform: translateY(0);
   max-height: 28rem;
+  margin-top: 1.15rem;
   pointer-events: auto;
+  /* Open after the split has started moving */
+  transition:
+    opacity 0.4s ease 0.2s,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
+    max-height 0.55s ease 0.15s,
+    margin 0.35s ease 0.15s;
 }
 
 .panelCopy {

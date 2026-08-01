@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import styles from "./HomeHero.module.css";
 
@@ -64,20 +64,76 @@ const panels: Record<"hiring" | "talent", PanelData> = {
   },
 };
 
+const ENTER_DELAY_MS = 110;
+const LEAVE_DELAY_MS = 160;
+const SWITCH_DELAY_MS = 70;
+
 export default function HomeHero() {
   const [active, setActive] = useState<Side>(null);
+  const activeRef = useRef<Side>(null);
+  const enterTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    activeRef.current = active;
+  }, [active]);
+
+  useEffect(() => {
+    return () => {
+      if (enterTimer.current) clearTimeout(enterTimer.current);
+      if (leaveTimer.current) clearTimeout(leaveTimer.current);
+    };
+  }, []);
+
+  function clearEnter() {
+    if (enterTimer.current) {
+      clearTimeout(enterTimer.current);
+      enterTimer.current = null;
+    }
+  }
+
+  function clearLeave() {
+    if (leaveTimer.current) {
+      clearTimeout(leaveTimer.current);
+      leaveTimer.current = null;
+    }
+  }
+
+  function activate(side: "hiring" | "talent") {
+    clearLeave();
+    clearEnter();
+
+    const current = activeRef.current;
+    if (current === side) return;
+
+    // Already expanded on the other side — switch a bit faster
+    const delay = current ? SWITCH_DELAY_MS : ENTER_DELAY_MS;
+    enterTimer.current = setTimeout(() => {
+      setActive(side);
+      enterTimer.current = null;
+    }, delay);
+  }
+
+  function deactivate() {
+    clearEnter();
+    clearLeave();
+    leaveTimer.current = setTimeout(() => {
+      setActive(null);
+      leaveTimer.current = null;
+    }, LEAVE_DELAY_MS);
+  }
 
   return (
     <section
       className={`${styles.hero} ${active ? styles[`focus-${active}`] : styles.balanced}`}
-      onMouseLeave={() => setActive(null)}
+      onMouseLeave={deactivate}
     >
       <h1 className={styles.srOnly}>Robotechs Inc. IT staffing</h1>
 
       <div className={styles.split} role="group" aria-label="Choose hiring or talent path">
         <article
           className={`${styles.panel} ${styles.hiring} ${active === "hiring" ? styles.expanded : ""} ${active === "talent" ? styles.collapsed : ""}`}
-          onMouseEnter={() => setActive("hiring")}
+          onMouseEnter={() => activate("hiring")}
         >
           <div className={styles.media}>
             <Image
@@ -132,7 +188,7 @@ export default function HomeHero() {
 
         <article
           className={`${styles.panel} ${styles.talent} ${active === "talent" ? styles.expanded : ""} ${active === "hiring" ? styles.collapsed : ""}`}
-          onMouseEnter={() => setActive("talent")}
+          onMouseEnter={() => activate("talent")}
         >
           <div className={styles.media}>
             <Image

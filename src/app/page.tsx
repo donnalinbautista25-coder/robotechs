@@ -9,8 +9,8 @@ import {
   ShieldCheck,
   Users,
 } from "lucide-react";
+import HomeHero from "@/components/HomeHero";
 import ParallaxBand from "@/components/ParallaxBand";
-import ParallaxHero from "@/components/ParallaxHero";
 import { serviceIcons } from "@/lib/icons";
 import { services, site } from "@/lib/site";
 import styles from "./home.module.css";
@@ -105,31 +105,7 @@ const trusted = [
 export default function HomePage() {
   return (
     <div className={styles.home}>
-      <ParallaxHero image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=80">
-        <p className={styles.brandLine}>{site.name}</p>
-        <h1 className={styles.heroTitle}>
-          Connecting top IT talent with enterprise{" "}
-          <span className={styles.goldWord}>success</span>
-        </h1>
-        <p className={styles.heroCopy}>
-          Specialist IT staffing and outsourcing services that help organizations
-          hire skilled professionals and build high-performing technology teams.
-        </p>
-        <div className={styles.heroActions}>
-          <Link
-            href="/contact?audience=employer"
-            className={`btn btn--primary ${styles.heroBtn}`}
-          >
-            Partner with us <ArrowRight size={16} aria-hidden="true" />
-          </Link>
-          <Link
-            href="/contact?audience=candidate"
-            className={`btn btn--outline ${styles.heroBtn}`}
-          >
-            Submit talent
-          </Link>
-        </div>
-      </ParallaxHero>
+      <HomeHero />
 
       <section className={styles.features}>
         <div className={`container ${styles.featuresGrid}`}>

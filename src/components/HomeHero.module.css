@@ -400,6 +400,12 @@ html[data-palette="subtle"] .expanded .panelCta:hover {
 
   .collapsed .content {
     padding: 1.35rem 1.5rem;
+    display: block;
+  }
+
+  .collapsed .panelHit {
+    width: 100%;
+    display: block;
   }
 
   .panelTitle {
@@ -410,11 +416,13 @@ html[data-palette="subtle"] .expanded .panelCta:hover {
     writing-mode: horizontal-tb;
     transform: none;
     font-size: 1.4rem;
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .collapsed .panelEyebrow {
     opacity: 1;
+    display: block;
+    margin-bottom: 0.45rem;
   }
 
   .collapsed .panelBody {

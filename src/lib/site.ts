@@ -1,8 +1,8 @@
 export const site = {
-  name: "Robotech",
+  name: "Robotechs Inc.",
   tagline: "IT Staffing & Outsourcing Services",
   description:
-    "Robotech connects organizations with skilled technology professionals through specialist recruitment and workforce solutions.",
+    "Robotechs Inc. connects organizations with skilled technology professionals through specialist recruitment and workforce solutions.",
   email: "hello@robotech.com",
   phone: "+1 (555) 240-8800",
   address: "1200 Market Street, Suite 400, San Francisco, CA 94102",

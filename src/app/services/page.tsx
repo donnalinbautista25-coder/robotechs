@@ -9,7 +9,7 @@ import styles from "./services.module.css";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore Robotech IT staffing services—permanent placement, contract staffing, leadership search, and more.",
+    "Explore Robotechs Inc. IT staffing services—permanent placement, contract staffing, leadership search, and more.",
 };
 
 export default function ServicesPage() {

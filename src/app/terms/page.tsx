@@ -13,7 +13,7 @@ export default function TermsPage() {
     <>
       <PageHero
         title="Terms and Conditions"
-        description="Please read these terms carefully before using the Robotech website or engaging our services."
+        description="Please read these terms carefully before using the Robotechs Inc. website or engaging our services."
       />
 
       <section className="section">
@@ -27,7 +27,7 @@ export default function TermsPage() {
             do not agree, please discontinue use of the site and services.
           </p>
 
-          <h2>2. About Robotech</h2>
+          <h2>2. About Robotechs Inc.</h2>
           <p>
             {site.name} provides IT staffing, recruitment, and related workforce
             solutions. Information on this website is for general informational

@@ -18,6 +18,10 @@
   margin-bottom: 1.5rem;
 }
 
+.goldWord {
+  color: var(--gold-bright);
+}
+
 .heroCopy {
   color: rgba(255, 255, 255, 0.75);
   max-width: 34rem;

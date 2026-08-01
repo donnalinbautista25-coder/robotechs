@@ -93,7 +93,7 @@ export const contactHighlights = [
   },
   {
     title: "Clear next steps",
-    copy: "Share a few details and a Robotech consultant will respond within one business day.",
+    copy: "Share a few details and a Robotechs Inc. consultant will respond within one business day.",
     icon: Compass,
   },
 ] as const;

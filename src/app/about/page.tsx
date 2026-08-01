@@ -13,7 +13,7 @@ import styles from "./about.module.css";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Robotech—our mission, values, and approach to specialist IT staffing.",
+    "Learn about Robotechs Inc.—our mission, values, and approach to specialist IT staffing.",
 };
 
 export default function AboutPage() {
@@ -21,7 +21,7 @@ export default function AboutPage() {
     <>
       <PageHero
         title="About Us"
-        description="Robotech is a specialist IT staffing firm helping organizations and professionals make decisive, well-matched career and hiring moves."
+        description="Robotechs Inc. is a specialist IT staffing firm helping organizations and professionals make decisive, well-matched career and hiring moves."
       />
 
       <section className="section">
@@ -43,7 +43,7 @@ export default function AboutPage() {
           </div>
           <div className={styles.prose}>
             <p>
-              Robotech was founded on a simple belief: technology teams deserve
+              Robotechs Inc. was founded on a simple belief: technology teams deserve
               recruiters who understand their work. We specialize in connecting
               skilled IT professionals with organizations that need capability,
               reliability, and cultural fit—not just résumés.

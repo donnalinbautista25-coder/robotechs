@@ -9,7 +9,7 @@ import styles from "./contact.module.css";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Robotech for IT staffing, recruitment support, or career opportunities.",
+    "Contact Robotechs Inc. for IT staffing, recruitment support, or career opportunities.",
 };
 
 type ContactPageProps = {
@@ -78,7 +78,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         <div className={`container ${styles.layout}`}>
           <div>
             <p className="eyebrow">Send a message</p>
-            <h2>How can Robotech help?</h2>
+            <h2>How can Robotechs Inc. help?</h2>
             <div className="accent-rule" />
             <p className="lead" style={{ marginBottom: "1.75rem" }}>
               Share a few details and a consultant will respond within one business day.

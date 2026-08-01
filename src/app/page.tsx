@@ -108,7 +108,8 @@ export default function HomePage() {
       <ParallaxHero image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=80">
         <p className={styles.brandLine}>{site.name}</p>
         <h1 className={styles.heroTitle}>
-          Connecting top IT talent with enterprise success
+          Connecting top IT talent with enterprise{" "}
+          <span className={styles.goldWord}>success</span>
         </h1>
         <p className={styles.heroCopy}>
           Specialist IT staffing and outsourcing services that help organizations

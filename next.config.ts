@@ -6,6 +6,7 @@ import type { NextConfig } from "next";
  * Render, Netlify (with Next runtime), or a VPS with `next start`.
  */
 const nextConfig: NextConfig = {
+  serverExternalPackages: ["nodemailer"],
   images: {
     remotePatterns: [
       {

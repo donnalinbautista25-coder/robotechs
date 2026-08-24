@@ -45,7 +45,9 @@ export default function ContactForm({
       form.reset();
       setAudience(defaultAudience);
       setStatus("success");
-      setMessage("Thank you. Our team will respond within one business day.");
+      setMessage(
+        "Thank you. A confirmation has been sent to your email, and our team will respond within one business day.",
+      );
     } catch (error) {
       setStatus("error");
       setMessage(
@@ -61,18 +63,35 @@ export default function ContactForm({
       <div className={styles.row}>
         <label>
           Full name
-          <input name="name" type="text" required autoComplete="name" />
+          <input
+            name="name"
+            type="text"
+            required
+            autoComplete="name"
+            maxLength={120}
+          />
         </label>
         <label>
           Work email
-          <input name="email" type="email" required autoComplete="email" />
+          <input
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            maxLength={254}
+          />
         </label>
       </div>
 
       <div className={styles.row}>
         <label>
           Company
-          <input name="company" type="text" autoComplete="organization" />
+          <input
+            name="company"
+            type="text"
+            autoComplete="organization"
+            maxLength={160}
+          />
         </label>
         <label>
           I am
@@ -90,7 +109,7 @@ export default function ContactForm({
 
       <label>
         How can we help?
-        <textarea name="message" rows={5} required />
+        <textarea name="message" rows={5} required maxLength={5000} />
       </label>
 
       <button

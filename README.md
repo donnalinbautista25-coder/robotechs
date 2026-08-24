@@ -26,15 +26,27 @@ Copy `.env.example` to `.env.local` and adjust values as needed.
 | Variable | Required | Description |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical site URL for metadata |
-| `CONTACT_WEBHOOK_URL` | Optional | Forwards contact form POSTs to your webhook / CRM / email service |
+| `GMAIL_USER` | Yes (for the form) | Gmail address used to send mail over SMTP |
+| `GMAIL_APP_PASSWORD` | Yes (for the form) | Google App Password for that Gmail account |
+| `CONTACT_TO_EMAIL` | Optional | Inbox that receives inquiries (defaults to `GMAIL_USER`) |
 
-Without `CONTACT_WEBHOOK_URL`, the contact API still validates submissions and returns success (messages are logged in development). Wire the webhook when you are ready to receive leads.
+### Gmail App Password
+
+Gmail will not accept your normal account password over SMTP. Create an App Password:
+
+1. Turn on [2-Step Verification](https://myaccount.google.com/signinoptions/two-step-verification).
+2. Open [App passwords](https://myaccount.google.com/apppasswords) and create one for Mail / Other.
+3. Paste the 16-character password into `GMAIL_APP_PASSWORD` (spaces are ignored).
+
+On first send from a new host (including Vercel), Google may email you a security alert. Confirm it was you if delivery fails.
+
+The contact form uses Gmail SMTP from a Node.js Route Handler (`/api/contact`). That works on Vercel’s free Hobby plan because the default runtime is Node.js (not Edge). Each submit sends two messages: an acknowledgment to the visitor’s work email, and the inquiry details to `CONTACT_TO_EMAIL`.
 
 ## Deploy on Vercel
 
 1. Push this repo to GitHub / GitLab / Bitbucket.
 2. Import the project in [Vercel](https://vercel.com/new).
-3. Set env vars from `.env.example`.
+3. In Project Settings → Environment Variables, add `GMAIL_USER`, `GMAIL_APP_PASSWORD`, and optionally `CONTACT_TO_EMAIL` and `NEXT_PUBLIC_SITE_URL`.
 4. Deploy — framework preset is detected automatically (no `vercel.json` required).
 
 To remove from Vercel later: delete the project in the Vercel dashboard. The app has no Vercel-specific lock-in.

@@ -107,9 +107,9 @@
 .expanded .mediaShade {
   background: linear-gradient(
     105deg,
-    rgba(5, 28, 44, 0.96) 0%,
-    rgba(5, 28, 44, 0.88) 45%,
-    rgba(5, 28, 44, 0.62) 100%
+    rgba(23, 27, 46, 0.96) 0%,
+    rgba(23, 27, 46, 0.88) 45%,
+    rgba(23, 27, 46, 0.62) 100%
   );
 }
 
@@ -126,10 +126,10 @@
 .talent.expanded .mediaShade {
   background: linear-gradient(
     100deg,
-    rgba(5, 28, 44, 0.94) 0%,
-    rgba(5, 28, 44, 0.8) 32%,
-    rgba(5, 28, 44, 0.38) 58%,
-    rgba(5, 28, 44, 0.22) 100%
+    rgba(23, 27, 46, 0.94) 0%,
+    rgba(23, 27, 46, 0.8) 32%,
+    rgba(23, 27, 46, 0.38) 58%,
+    rgba(23, 27, 46, 0.22) 100%
   );
 }
 
@@ -392,17 +392,6 @@
 
 .panelCta {
   width: fit-content;
-}
-
-/* When gold is off, keep the CTA readable on the dark expanded panel */
-html[data-palette="subtle"] .expanded .panelCta {
-  background: var(--white);
-  color: var(--blue-deep);
-}
-
-html[data-palette="subtle"] .expanded .panelCta:hover {
-  background: var(--grey-100);
-  color: var(--blue-deep);
 }
 
 @media (max-width: 900px) {

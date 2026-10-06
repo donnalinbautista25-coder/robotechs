@@ -47,17 +47,17 @@
 .overlay--dark {
   background: linear-gradient(
     105deg,
-    rgba(5, 28, 44, 0.78) 0%,
-    rgba(5, 28, 44, 0.58) 55%,
-    rgba(5, 28, 44, 0.4) 100%
+    rgba(23, 27, 46, 0.78) 0%,
+    rgba(23, 27, 46, 0.58) 55%,
+    rgba(23, 27, 46, 0.4) 100%
   );
 }
 
 .overlay--soft {
   background: linear-gradient(
     180deg,
-    rgba(5, 28, 44, 0.45) 0%,
-    rgba(5, 28, 44, 0.62) 100%
+    rgba(23, 27, 46, 0.45) 0%,
+    rgba(23, 27, 46, 0.62) 100%
   );
 }
 

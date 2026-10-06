@@ -68,7 +68,7 @@ function brandedHtml(title: string, body: string) {
         <td align="center">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border:1px solid #e3e8eb;">
             <tr>
-              <td style="background:#051c2c;color:#ffffff;padding:20px 28px;">
+              <td style="background:#171b2e;color:#ffffff;padding:20px 28px;">
                 <p style="margin:0;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#c9a84a;">${escapeHtml(site.name)}</p>
                 <h1 style="margin:8px 0 0;font-size:20px;font-weight:500;">${escapeHtml(title)}</h1>
               </td>

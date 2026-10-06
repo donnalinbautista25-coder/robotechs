@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navLinks, site } from "@/lib/site";
@@ -36,12 +37,20 @@ export default function Header() {
       >
         <div className={`container ${styles.inner}`}>
           <Link href="/" className={styles.brand} aria-label={`${site.name} home`}>
-            <span className={styles.mark} aria-hidden="true">
-              R
-            </span>
+            <Image
+              src="/images/logo.png"
+              alt=""
+              width={40}
+              height={40}
+              className={styles.mark}
+              priority
+            />
             <span className={styles.brandText}>
               <span className={styles.name}>{site.name}</span>
-              <span className={styles.tag}>{site.tagline}</span>
+              <span className={styles.tag}>
+                Where <strong>Global Talent</strong> Meets <strong>Innovation</strong>
+              </span>
+              <span className={styles.slogan}>We got IT</span>
             </span>
           </Link>
 

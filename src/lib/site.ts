@@ -1,6 +1,6 @@
 export const site = {
   name: "Robotechs Inc.",
-  tagline: "IT Staffing & Outsourcing Services",
+  tagline: "Where Global Talent Meets Innovation",
   description:
     "Robotechs Inc. connects organizations with skilled technology professionals through specialist recruitment and workforce solutions.",
   email: "hello@robotech.com",

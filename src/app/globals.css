@@ -1,14 +1,14 @@
 :root {
-  --blue-deep: #051c2c;
-  --blue-dark: #0a2a43;
-  --blue: #051c2c;
-  --blue-mid: #1a3a5c;
+  --blue-deep: #171b2e;
+  --blue-dark: #121428;
+  --blue: #171b2e;
+  --blue-mid: #2c3148;
   --blue-accent: #2251ff;
   --blue-accent-hover: #1a41cc;
-  --gold: #b8952c;
-  --gold-bright: #c9a84a;
-  --gold-deep: #8f7320;
-  --gold-soft: rgba(184, 149, 44, 0.12);
+  --gold: #d4af37;
+  --gold-bright: #e4c45c;
+  --gold-deep: #b8952c;
+  --gold-soft: rgba(212, 175, 55, 0.16);
   --grey-900: #1a1a1a;
   --grey-700: #3d4a54;
   --grey-500: #6b7780;
@@ -20,10 +20,10 @@
   --text: var(--grey-900);
   --muted: var(--grey-500);
   --surface: var(--white);
-  --border: rgba(5, 28, 44, 0.12);
+  --border: rgba(23, 27, 46, 0.12);
   --radius: 0;
   --max: 1180px;
-  --header-h: 72px;
+  --header-h: 88px;
   --font-sans: var(--font-robotech), "Helvetica Neue", Arial, sans-serif;
   --font-display: var(--font-sans);
   --font-body: var(--font-sans);
@@ -34,28 +34,6 @@
   --navy-mid: var(--blue-mid);
   --navy-soft: var(--blue-dark);
 
-  /* palette tokens — subtle gold by default */
-  --btn-primary-bg: var(--blue-deep);
-  --btn-primary-color: var(--white);
-  --btn-primary-hover: var(--blue-mid);
-  --btn-navy-bg: var(--blue-deep);
-  --btn-navy-hover: var(--blue-mid);
-  --mark-bg: var(--blue-deep);
-  --mark-color: var(--white);
-  --nav-underline: var(--gold);
-  --feature-icon: rgba(255, 255, 255, 0.55);
-  --feature-title: var(--white);
-  --feature-band: var(--blue-deep);
-  --accent-rule-w: 2.5rem;
-  --accent-rule-h: 2px;
-  --section-navy-tint: none;
-}
-
-html[data-palette="rich"] {
-  --gold: #d4af37;
-  --gold-bright: #e4c45c;
-  --gold-deep: #b8952c;
-  --gold-soft: rgba(212, 175, 55, 0.16);
   --btn-primary-bg: linear-gradient(135deg, #e4c45c, #d4af37 55%, #b8952c);
   --btn-primary-color: var(--blue-deep);
   --btn-primary-hover: linear-gradient(135deg, #ebcf6e, #d4af37 55%, #a98624);
@@ -66,7 +44,7 @@ html[data-palette="rich"] {
   --nav-underline: var(--gold-bright);
   --feature-icon: var(--gold-bright);
   --feature-title: var(--gold-bright);
-  --feature-band: linear-gradient(180deg, #071525, #0b1f3a 55%, #143056);
+  --feature-band: linear-gradient(180deg, #121428, #171b2e 55%, #2a2e48);
   --accent-rule-w: 3.25rem;
   --accent-rule-h: 3px;
   --section-navy-tint: radial-gradient(
@@ -252,21 +230,11 @@ p {
 
 .btn--ghost {
   background: transparent;
-  border-color: var(--blue-deep);
-  color: var(--blue-deep);
-}
-
-.btn--ghost:hover {
-  background: var(--blue-deep);
-  color: var(--white);
-}
-
-html[data-palette="rich"] .btn--ghost {
   border-color: var(--gold);
   color: var(--gold-deep);
 }
 
-html[data-palette="rich"] .btn--ghost:hover {
+.btn--ghost:hover {
   background: var(--gold);
   color: var(--blue-deep);
   border-color: var(--gold);

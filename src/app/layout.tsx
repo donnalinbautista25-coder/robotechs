@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PaletteToggle from "@/components/PaletteToggle";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -59,19 +58,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={robotechSans.variable} data-palette="subtle" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var m=localStorage.getItem('robotechs-palette');if(m==='rich'||m==='subtle'){document.documentElement.setAttribute('data-palette',m);}}catch(e){}})();`,
-          }}
-        />
-      </head>
+    <html lang="en" className={robotechSans.variable}>
       <body className={robotechSans.className}>
         <Header />
         <main>{children}</main>
         <Footer />
-        <PaletteToggle />
       </body>
     </html>
   );

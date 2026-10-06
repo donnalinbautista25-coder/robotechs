@@ -30,9 +30,9 @@
 }
 
 .mark {
-  width: 0.5rem;
-  height: 0.5rem;
-  background: var(--gold);
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
 }
 
 .top h3 {

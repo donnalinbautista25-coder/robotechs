@@ -3,17 +3,17 @@
   inset: 0 0 auto;
   z-index: 60;
   height: var(--header-h);
-  background: var(--white);
+  background: var(--blue-deep);
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
 }
 
 .headerOpen {
-  background: var(--white);
+  background: var(--blue-deep);
 }
 
 .scrolled {
-  border-bottom-color: var(--border);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
 .inner {
@@ -27,43 +27,53 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--blue-deep);
+  color: var(--white);
 }
 
 .mark {
-  display: grid;
-  place-items: center;
-  width: 1.75rem;
-  height: 1.75rem;
-  background: var(--mark-bg);
-  color: var(--mark-color);
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
 }
 
 .brandText {
   display: flex;
   flex-direction: column;
-  gap: 0.05rem;
+  align-items: center;
+  gap: 0.12rem;
 }
 
 .name {
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.04em;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .tag {
   display: none;
   font-family: var(--font-body);
   font-size: 0.6875rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  color: var(--grey-500);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.tag strong {
+  font-weight: 500;
+  color: var(--gold-bright);
+}
+
+.slogan {
+  color: var(--white);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-align: center;
 }
 
 @media (min-width: 1100px) {
@@ -80,7 +90,7 @@
 
 .link {
   position: relative;
-  color: var(--grey-700);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.9375rem;
   font-weight: 500;
   transition: color 0.15s ease;
@@ -88,7 +98,7 @@
 
 .link:hover,
 .active {
-  color: var(--blue-deep);
+  color: var(--white);
 }
 
 .active::after {
@@ -105,6 +115,14 @@
   margin-left: 0.25rem;
   min-height: 2.5rem;
   padding-inline: 1.15rem;
+  background: var(--gold);
+  color: var(--blue-deep);
+  border-color: transparent;
+}
+
+.cta:hover {
+  background: var(--gold-bright);
+  color: var(--blue-deep);
 }
 
 .menuBtn {
@@ -114,7 +132,7 @@
   gap: 5px;
   width: 2.5rem;
   height: 2.5rem;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   background: transparent;
   cursor: pointer;
   z-index: 1;
@@ -125,7 +143,7 @@
   width: 1.1rem;
   height: 1.5px;
   margin-inline: auto;
-  background: var(--blue-deep);
+  background: var(--white);
   transition: transform 0.2s ease, opacity 0.15s ease;
 }
 
@@ -145,7 +163,7 @@
   position: fixed;
   inset: 0;
   z-index: 55;
-  background: rgba(5, 28, 44, 0.35);
+  background: rgba(23, 27, 46, 0.35);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

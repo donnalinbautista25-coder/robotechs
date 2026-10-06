@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { navLinks, site } from "@/lib/site";
 import styles from "./Footer.module.css";
 
@@ -10,7 +11,13 @@ export default function Footer() {
       <div className={`container ${styles.top}`}>
         <div className={styles.brandBlock}>
           <Link href="/" className={styles.brand}>
-            <span className={styles.mark} aria-hidden="true" />
+            <Image
+              src="/images/logo.png"
+              alt=""
+              width={28}
+              height={28}
+              className={styles.mark}
+            />
             {site.name}
           </Link>
           <p>{site.tagline}</p>

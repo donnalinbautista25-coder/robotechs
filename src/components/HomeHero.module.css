@@ -66,6 +66,7 @@
 .image {
   object-fit: cover;
   object-position: center;
+  transition: object-position 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hiring .image {
@@ -73,7 +74,22 @@
 }
 
 .talent .image {
-  object-position: center 18%;
+  /* Portrait photo: keep the group in frame instead of the empty wall above them */
+  object-position: center 68%;
+  transform: scale(1.18);
+  transform-origin: center center;
+}
+
+.hiring.expanded .image {
+  /* Wide crop: keep heads, let the table take the cut */
+  object-position: center top;
+  transform: none;
+}
+
+.talent.expanded .image {
+  /* Wide crop: keep the standing person and the people seated in front */
+  object-position: center 58%;
+  transform: none;
 }
 
 .mediaShade {
@@ -94,6 +110,26 @@
     rgba(5, 28, 44, 0.96) 0%,
     rgba(5, 28, 44, 0.88) 45%,
     rgba(5, 28, 44, 0.62) 100%
+  );
+}
+
+.talent .mediaShade {
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.62) 34%,
+    rgba(255, 255, 255, 0.22) 68%,
+    rgba(255, 255, 255, 0.16) 100%
+  );
+}
+
+.talent.expanded .mediaShade {
+  background: linear-gradient(
+    100deg,
+    rgba(5, 28, 44, 0.94) 0%,
+    rgba(5, 28, 44, 0.8) 32%,
+    rgba(5, 28, 44, 0.38) 58%,
+    rgba(5, 28, 44, 0.22) 100%
   );
 }
 
@@ -406,6 +442,11 @@ html[data-palette="subtle"] .expanded .panelCta:hover {
   .collapsed .panelHit {
     width: 100%;
     display: block;
+  }
+
+  .talent .image {
+    object-position: center 60%;
+    transform: none;
   }
 
   .panelTitle {

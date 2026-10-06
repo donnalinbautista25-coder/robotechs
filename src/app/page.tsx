@@ -73,8 +73,7 @@ const audiences = [
     copy: "Scale engineering, security, cloud, and data teams with recruiters who speak your stack.",
     href: "/contact?audience=employer",
     cta: "Start a search",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80",
+    image: "/images/for-employers.jpg",
   },
   {
     title: "For professionals",
@@ -200,11 +199,12 @@ export default function HomePage() {
         <div className={`container ${styles.approachLayout}`}>
           <div className={styles.approachMedia}>
             <Image
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80"
-              alt="Consultants collaborating in a modern office"
-              fill
+              src="/images/tech-hiring.jpg"
+              alt="Team reviewing a technology hiring plan"
+              width={1024}
+              height={741}
               className={styles.approachImage}
-              sizes="(max-width: 900px) 100vw, 48vw"
+              sizes="(max-width: 900px) 100vw, 50vw"
             />
           </div>
           <div>

@@ -38,9 +38,8 @@ const panels: Record<"hiring" | "talent", PanelData> = {
     ],
     href: "/contact?audience=employer",
     cta: "Start a search",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Modern office workspace for growing technology teams",
+    image: "/images/partner-with-us.jpg",
+    imageAlt: "Partners agreeing on a technology search",
   },
   talent: {
     eyebrow: "For professionals",
@@ -58,9 +57,8 @@ const panels: Record<"hiring" | "talent", PanelData> = {
     ],
     href: "/contact?audience=candidate",
     cta: "Explore opportunities",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Professional exploring their next career opportunity",
+    image: "/images/find-your-next-role.jpg",
+    imageAlt: "Technology professionals ready for their next role",
   },
 };
 

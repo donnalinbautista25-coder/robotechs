@@ -176,13 +176,13 @@
 }
 
 .approachMedia {
-  position: relative;
-  min-height: 320px;
-  overflow: hidden;
+  width: 100%;
 }
 
 .approachImage {
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .approachLead {
@@ -400,12 +400,9 @@
   }
 
   .approachLayout {
-    grid-template-columns: 0.95fr 1.05fr;
+    grid-template-columns: 1fr 1fr;
     gap: 4.5rem;
-  }
-
-  .approachMedia {
-    min-height: 520px;
+    align-items: center;
   }
 
   .serviceGrid {

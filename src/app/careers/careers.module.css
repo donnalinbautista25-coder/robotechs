@@ -1,0 +1,18 @@
+.intro {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+
+.intro h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  max-width: 16ch;
+  font-weight: 500;
+}
+
+@media (min-width: 900px) {
+  .intro {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4.5rem;
+  }
+}

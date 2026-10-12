@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { CheckCircle2 } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
+import CareerCarousel from "@/components/CareerCarousel";
 import { careerReasons } from "@/lib/site";
-import about from "../about/about.module.css";
 import contact from "../contact/contact.module.css";
+import styles from "./careers.module.css";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -21,50 +21,22 @@ export default function CareersPage() {
       />
 
       <section className="section">
-        <div className="container">
-          <p className="eyebrow">For technology professionals</p>
-          <h2>Enterprise opportunities, with direct employment</h2>
-          <div className="accent-rule" />
-          <p className="lead">
-            Robotechs connects skilled IT professionals with enterprise-level
-            opportunities across software development, cloud infrastructure,
-            cybersecurity, database administration, and systems analysis. As a
-            Robotechs employee, you&apos;re supported from onboarding through
-            every stage of your assignment, with direct employment, payroll
-            administration, and dedicated support throughout your career with
-            us.
-          </p>
-        </div>
-      </section>
-
-      <section className="section section--grey">
-        <div className="container">
-          <p className="eyebrow">Why work with Robotechs</p>
-          <h2>Support from the first day of an assignment</h2>
-          <div className="accent-rule" />
-          <ul className={about.handles}>
-            {careerReasons.map((item) => (
-              <li key={item}>
-                <CheckCircle2 size={16} aria-hidden="true" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <p className="eyebrow">Current opportunities</p>
-          <h2>Openings will be listed here</h2>
-          <div className="accent-rule" />
-          <p className="lead">
-            Job listings will appear on this page as openings become available.
-          </p>
-          <p className="lead">
-            Don&apos;t see a current fit? Submit your resume to join our talent
-            database and be considered for future opportunities as they arise.
-          </p>
+        <div className={`container ${styles.intro}`}>
+          <div>
+            <p className="eyebrow">For technology professionals</p>
+            <h2>Enterprise opportunities, with direct employment</h2>
+            <div className="accent-rule" />
+            <p className="lead">
+              Robotechs connects skilled IT professionals with enterprise-level
+              opportunities across software development, cloud infrastructure,
+              cybersecurity, database administration, and systems analysis. As a
+              Robotechs employee, you&apos;re supported from onboarding through
+              every stage of your assignment, with direct employment, payroll
+              administration, and dedicated support throughout your career with
+              us.
+            </p>
+          </div>
+          <CareerCarousel reasons={careerReasons} />
         </div>
       </section>
 

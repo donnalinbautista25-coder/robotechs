@@ -1,0 +1,108 @@
+.carousel {
+  min-width: 0;
+}
+
+.heading {
+  margin-bottom: 0.85rem;
+}
+
+.track {
+  height: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.bar,
+.barPaused {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--gold);
+  transform-origin: left center;
+  animation: fill 4.5s linear;
+}
+
+.barPaused {
+  animation-play-state: paused;
+}
+
+.stage {
+  margin-top: 0;
+  border-top: none;
+}
+
+.doodle {
+  position: relative;
+  height: 19rem;
+  margin-top: 0.85rem;
+  overflow: hidden;
+}
+
+.doodleImage {
+  object-fit: contain;
+  animation: rise 0.45s var(--ease);
+}
+
+.slide {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.15rem;
+  align-items: center;
+  min-height: 8.5rem;
+  margin: 0;
+}
+
+.index {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  color: var(--white);
+  background: var(--blue-deep);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.copy {
+  color: var(--blue-deep);
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  font-weight: 500;
+  line-height: 1.35;
+  animation: rise 0.45s var(--ease);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fill {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy,
+  .doodleImage,
+  .bar,
+  .barPaused {
+    animation: none;
+  }
+
+  .bar,
+  .barPaused {
+    transform: scaleX(1);
+  }
+}

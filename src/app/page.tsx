@@ -1,9 +1,33 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import {
+  ArrowRight,
+  Cloud,
+  Code2,
+  Database,
+  LockKeyhole,
+  MonitorCog,
+} from "lucide-react";
 import HomeHero from "@/components/HomeHero";
+import IndustryMarquee from "@/components/IndustryMarquee";
 import { whatWeDo } from "@/lib/icons";
-import { industries, site } from "@/lib/site";
+import { site } from "@/lib/site";
 import styles from "./home.module.css";
+
+const placedRoles = [
+  { title: "Software engineers", icon: Code2 },
+  { title: "Cloud specialists", icon: Cloud },
+  { title: "Database administrators", icon: Database },
+  { title: "Systems analysts", icon: MonitorCog },
+  { title: "Cybersecurity professionals", icon: LockKeyhole },
+] as const;
+
+const assignmentTypes = [
+  "Project-based",
+  "Contract",
+  "Contract-to-hire",
+  "Long-term",
+] as const;
 
 export default function HomePage() {
   return (
@@ -11,23 +35,50 @@ export default function HomePage() {
       <HomeHero />
 
       <section className={`section ${styles.aboutSection}`}>
-        <div className="container">
-          <p className="eyebrow">{site.shortName}</p>
-          <h2>Enterprise IT Talent. Delivered Through Trusted Partnerships.</h2>
-          <div className="accent-rule" />
-          <p className="lead">
-            Robotechs is an IT staffing and outsourcing company that places
-            skilled technology professionals with enterprise organizations
-            through established workforce partners.
-          </p>
-          <p className={styles.approachLead}>
-            Robotechs bridges the gap between highly skilled technology
-            professionals and the workforce demands of enterprise clients. We
-            recruit, employ, and support IT talent, including software
-            engineers, cloud specialists, database administrators, systems
-            analysts, and cybersecurity professionals, for project-based,
-            contract, contract-to-hire, and long-term assignments.
-          </p>
+        <div className={`container ${styles.introLayout}`}>
+          <div className={styles.introCopy}>
+            <p className="eyebrow">{site.shortName}</p>
+            <h2>Enterprise IT Talent. Delivered Through Trusted Partnerships.</h2>
+            <div className="accent-rule" />
+            <p className="lead">
+              Robotechs is an IT staffing and outsourcing company that places
+              skilled technology professionals with enterprise organizations
+              through established workforce partners.
+            </p>
+            <p>
+              Robotechs bridges the gap between highly skilled technology
+              professionals and the workforce demands of enterprise clients. We
+              recruit, employ, and support IT talent for project-based,
+              contract, contract-to-hire, and long-term assignments.
+            </p>
+          </div>
+
+          <aside className={styles.introPanel}>
+            <div className={styles.introMedia}>
+              <Image
+                src="/images/tech-hiring.jpg"
+                alt="Team reviewing a technology hiring plan"
+                width={1024}
+                height={741}
+                className={styles.introImage}
+                sizes="(max-width: 900px) 100vw, 42vw"
+              />
+            </div>
+            <p className="eyebrow">Who we place</p>
+            <ul className={styles.introRoles}>
+              {placedRoles.map(({ title, icon: Icon }) => (
+                <li key={title}>
+                  <Icon size={18} strokeWidth={1.6} aria-hidden="true" />
+                  <span>{title}</span>
+                </li>
+              ))}
+            </ul>
+            <ul className={styles.assignmentTypes}>
+              {assignmentTypes.map((type) => (
+                <li key={type}>{type}</li>
+              ))}
+            </ul>
+          </aside>
         </div>
       </section>
 
@@ -51,21 +102,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <p className="eyebrow">Coverage</p>
-          <h2>Industries we support</h2>
-          <div className="accent-rule" />
-          <ul className={styles.industryList}>
-            {industries.map((industry) => (
-              <li key={industry}>
-                <CheckCircle2 size={15} aria-hidden="true" />
-                {industry}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <IndustryMarquee />
 
       <section className="section section--grey">
         <div className="container">

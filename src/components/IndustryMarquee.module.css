@@ -1,0 +1,78 @@
+.section {
+  padding-bottom: 0;
+}
+
+.marquee {
+  overflow: hidden;
+  margin-top: 2.75rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  list-style: none;
+  animation: industrySlide 42s linear infinite;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+.track li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.7rem 2.6rem;
+  color: var(--blue-deep);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.track li + li {
+  border-left: 1px solid var(--border);
+}
+
+.track svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+@keyframes industrySlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .track {
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: none;
+    padding: 0.5rem 1.5rem 1.25rem;
+  }
+
+  .track li[aria-hidden="true"] {
+    display: none;
+  }
+}

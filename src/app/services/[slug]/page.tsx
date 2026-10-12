@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import IndustryMarquee from "@/components/IndustryMarquee";
 import PageHero from "@/components/PageHero";
-import { industries, staffingRoles, staffingSteps } from "@/lib/site";
+import { staffingRoles, staffingSteps } from "@/lib/site";
 import styles from "../services.module.css";
 
 const pages = {
@@ -88,21 +89,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </div>
           </section>
 
-          <section className="section">
-            <div className="container">
-              <p className="eyebrow">Coverage</p>
-              <h2>Industries supported</h2>
-              <div className="accent-rule" />
-              <div className={styles.chips}>
-                {industries.map((industry) => (
-                  <span key={industry} className={styles.chip}>
-                    <CheckCircle2 size={15} aria-hidden="true" />
-                    {industry}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </section>
+          <IndustryMarquee title="Industries supported" />
         </>
       ) : (
         <section className="section">

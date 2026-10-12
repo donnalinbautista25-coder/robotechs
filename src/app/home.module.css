@@ -50,6 +50,82 @@
   background: var(--white);
 }
 
+.introLayout {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.introCopy h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  max-width: 16ch;
+  font-weight: 500;
+}
+
+.introCopy p {
+  max-width: 36rem;
+  margin-bottom: 1.15rem;
+}
+
+.introPanel {
+  border-top: 1px solid var(--border);
+}
+
+.introMedia {
+  margin: 0 0 1.75rem;
+}
+
+.introImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.introRoles {
+  list-style: none;
+  display: grid;
+  gap: 0;
+}
+
+.introRoles li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--blue-deep);
+  font-weight: 500;
+}
+
+.introRoles svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.assignmentTypes {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.assignmentTypes li {
+  color: var(--grey-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.assignmentTypes li::before {
+  content: "";
+  display: inline-block;
+  width: 0.4rem;
+  height: 2px;
+  margin-right: 0.45rem;
+  background: var(--gold);
+  vertical-align: middle;
+}
+
 .aboutGrid {
   display: grid;
   gap: 4rem;
@@ -361,28 +437,6 @@
   letter-spacing: 0.02em;
 }
 
-.industryList {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.75rem;
-  margin-top: 2rem;
-}
-
-.industryList li {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--border);
-  color: var(--blue-deep);
-  font-weight: 500;
-}
-
-.industryList svg {
-  color: var(--gold);
-}
-
 .ctaActions {
   display: flex;
   flex-wrap: wrap;
@@ -429,10 +483,11 @@
     gap: 1.5rem;
   }
 
-  .aboutGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
+  .aboutGrid,
+  .introLayout {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4.5rem;
+    align-items: center;
   }
 
   .approachLayout {

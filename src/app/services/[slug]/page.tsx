@@ -1,11 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  ArrowRight,
+  Cloud,
+  Code2,
+  Database,
+  GitMerge,
+  LockKeyhole,
+  MonitorCog,
+  type LucideIcon,
+} from "lucide-react";
 import IndustryMarquee from "@/components/IndustryMarquee";
 import PageHero from "@/components/PageHero";
 import { staffingRoles, staffingSteps } from "@/lib/site";
 import styles from "../services.module.css";
+
+const roleIcons: Record<(typeof staffingRoles)[number], LucideIcon> = {
+  "Software Engineering and Development": Code2,
+  "Cloud Infrastructure and Platform Engineering": Cloud,
+  "Database Administration": Database,
+  "Systems Analysis": MonitorCog,
+  Cybersecurity: LockKeyhole,
+};
+
+const deliveryFocus = [
+  { title: "Application development", icon: Code2 },
+  { title: "Systems integration", icon: GitMerge },
+  { title: "Technical delivery", icon: MonitorCog },
+] as const;
 
 const pages = {
   "it-staffing": {
@@ -52,27 +76,46 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       {slug === "it-staffing" ? (
         <>
           <section className="section">
-            <div className="container">
-              <p className="eyebrow">Roles</p>
-              <h2>Skilled IT talent for enterprise-level engagements</h2>
-              <div className="accent-rule" />
-              <p className="lead">We support roles across:</p>
-              <div className={styles.chips}>
-                {staffingRoles.map((role) => (
-                  <span key={role} className={styles.chip}>
-                    <CheckCircle2 size={15} aria-hidden="true" />
-                    {role}
-                  </span>
-                ))}
+            <div className={`container ${styles.split}`}>
+              <div className={styles.frame}>
+                <Image
+                  src="/images/it-staffing.jpg"
+                  alt="Technology professionals working across an enterprise floor"
+                  fill
+                  className={styles.frameImage}
+                  sizes="(max-width: 800px) 100vw, 42vw"
+                />
+              </div>
+              <div className={styles.copy}>
+                <p className="eyebrow">Roles</p>
+                <h2>Skilled IT talent for enterprise-level engagements</h2>
+                <div className="accent-rule" />
+                <p className="lead">
+                  We support contract, contract-to-hire, project-based, and
+                  long-term assignments across these disciplines.
+                </p>
+                <ul className={styles.roles}>
+                  {staffingRoles.map((role) => {
+                    const Icon = roleIcons[role];
+                    return (
+                      <li key={role}>
+                        <Icon size={18} strokeWidth={1.6} aria-hidden="true" />
+                        <span>{role}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </div>
           </section>
 
           <section className="section section--grey">
-            <div className="container">
-              <p className="eyebrow">Our model</p>
-              <h2>How our staffing model works</h2>
-              <div className="accent-rule" />
+            <div className={`container ${styles.model}`}>
+              <div>
+                <p className="eyebrow">Our model</p>
+                <h2>How our staffing model works</h2>
+                <div className="accent-rule" />
+              </div>
               <ol className={styles.steps}>
                 {staffingSteps.map((step, index) => (
                   <li key={step.title}>
@@ -94,15 +137,37 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       ) : (
         <section className="section">
           <div className="container">
-            <p className="eyebrow">Engagements</p>
-            <h2>Technical talent for software and systems projects</h2>
-            <div className="accent-rule" />
-            <p className="lead">
-              Our consultants are matched to assignments based on relevant
-              experience, technical proficiency, and project requirements, with
-              Robotechs managing the full employment relationship throughout
-              the engagement.
-            </p>
+            <div className={`${styles.split} ${styles.splitEnd}`}>
+              <div className={styles.copy}>
+                <p className="eyebrow">Engagements</p>
+                <h2>Technical talent for software and systems projects</h2>
+                <div className="accent-rule" />
+                <p className="lead">
+                  Our consultants are matched to assignments based on relevant
+                  experience, technical proficiency, and project requirements,
+                  with Robotechs managing the full employment relationship
+                  throughout the engagement.
+                </p>
+                <p className={`eyebrow ${styles.focusLabel}`}>What the work covers</p>
+                <ul className={styles.focus}>
+                  {deliveryFocus.map(({ title, icon: Icon }) => (
+                    <li key={title}>
+                      <Icon size={18} strokeWidth={1.6} aria-hidden="true" />
+                      <span>{title}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className={styles.frame}>
+                <Image
+                  src="/images/software-office.jpg"
+                  alt="A developer working at a laptop in an open office"
+                  fill
+                  className={styles.frameImage}
+                  sizes="(max-width: 800px) 100vw, 42vw"
+                />
+              </div>
+            </div>
           </div>
         </section>
       )}

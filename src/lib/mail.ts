@@ -1,18 +1,23 @@
 import nodemailer from "nodemailer";
 import { site } from "@/lib/site";
 
-export type ContactInquiry = {
-  name: string;
-  email: string;
-  company: string;
-  audience: string;
-  message: string;
+export type InquiryField = {
+  label: string;
+  value: string;
 };
 
-const audienceLabels: Record<string, string> = {
-  employer: "Employer hiring talent",
-  candidate: "Candidate seeking roles",
-  other: "Other",
+export type InquiryAttachment = {
+  filename: string;
+  content: Buffer;
+  contentType: string;
+};
+
+export type InquiryEmail = {
+  intentLabel: string;
+  name: string;
+  email: string;
+  fields: InquiryField[];
+  attachment?: InquiryAttachment;
 };
 
 function escapeHtml(value: string) {
@@ -22,10 +27,6 @@ function escapeHtml(value: string) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
-}
-
-function formatAudience(audience: string) {
-  return audienceLabels[audience] ?? audience;
 }
 
 function getSmtpConfig() {
@@ -91,12 +92,12 @@ function brandedHtml(title: string, body: string) {
 </html>`;
 }
 
-function acknowledgmentContent(inquiry: ContactInquiry) {
+function acknowledgmentContent(inquiry: InquiryEmail) {
   const firstName = inquiry.name.split(/\s+/)[0] || inquiry.name;
   const text = [
     `Hi ${firstName},`,
     "",
-    `Thank you for contacting ${site.name}. We have received your message and a consultant will respond within one business day.`,
+    `Thank you for contacting ${site.name}. We have received your ${inquiry.intentLabel.toLowerCase()} and will respond within one business day.`,
     "",
     "If you need to add anything, you can reply to this email.",
     "",
@@ -107,57 +108,54 @@ function acknowledgmentContent(inquiry: ContactInquiry) {
   const html = brandedHtml(
     "We received your message",
     `<p style="margin:0 0 16px;">Hi ${escapeHtml(firstName)},</p>
-     <p style="margin:0 0 16px;">Thank you for contacting ${escapeHtml(site.name)}. We have received your message and a consultant will respond within one business day.</p>
+     <p style="margin:0 0 16px;">Thank you for contacting ${escapeHtml(site.name)}. We have received your ${escapeHtml(inquiry.intentLabel.toLowerCase())} and will respond within one business day.</p>
      <p style="margin:0;">If you need to add anything, you can reply to this email.</p>`,
   );
 
   return { text, html };
 }
 
-function notificationContent(inquiry: ContactInquiry) {
-  const audience = formatAudience(inquiry.audience);
+function notificationContent(inquiry: InquiryEmail) {
   const receivedAt = new Date().toUTCString();
   const rows = [
-    ["Name", inquiry.name],
-    ["Work email", inquiry.email],
-    ["Company", inquiry.company || "—"],
-    ["I am", audience],
-    ["Received", receivedAt],
+    ...inquiry.fields.map((field) => [field.label, field.value || "—"] as const),
+    ["Received", receivedAt] as const,
   ];
 
   const text = [
-    `New website inquiry from ${inquiry.name}`,
+    `New ${inquiry.intentLabel.toLowerCase()} from ${inquiry.name}`,
     "",
     ...rows.map(([label, value]) => `${label}: ${value}`),
-    "",
-    "Message:",
-    inquiry.message,
+    inquiry.attachment ? `\nAttachment: ${inquiry.attachment.filename}` : "",
   ].join("\n");
 
   const htmlRows = rows
     .map(
       ([label, value]) =>
         `<tr>
-          <td style="padding:8px 0;width:140px;color:#6b7780;vertical-align:top;">${escapeHtml(label)}</td>
-          <td style="padding:8px 0;color:#1a1a1a;">${escapeHtml(value)}</td>
+          <td style="padding:8px 0;width:180px;color:#6b7780;vertical-align:top;">${escapeHtml(label)}</td>
+          <td style="padding:8px 0;color:#1a1a1a;white-space:pre-wrap;">${escapeHtml(value)}</td>
         </tr>`,
     )
     .join("");
 
   const html = brandedHtml(
-    "New website inquiry",
-    `<p style="margin:0 0 16px;">A new message was submitted from the ${escapeHtml(site.name)} website.</p>
+    inquiry.intentLabel,
+    `<p style="margin:0 0 16px;">A new ${escapeHtml(inquiry.intentLabel.toLowerCase())} was submitted from the ${escapeHtml(site.name)} website.</p>
      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
        ${htmlRows}
      </table>
-     <p style="margin:20px 0 8px;color:#6b7780;">Message</p>
-     <p style="margin:0;white-space:pre-wrap;color:#1a1a1a;">${escapeHtml(inquiry.message)}</p>`,
+     ${
+       inquiry.attachment
+         ? `<p style="margin:20px 0 0;">Attachment: ${escapeHtml(inquiry.attachment.filename)}</p>`
+         : ""
+     }`,
   );
 
   return { text, html };
 }
 
-export async function sendContactEmails(inquiry: ContactInquiry) {
+export async function sendInquiryEmail(inquiry: InquiryEmail) {
   const config = getSmtpConfig();
 
   if (!config) {
@@ -168,7 +166,6 @@ export async function sendContactEmails(inquiry: ContactInquiry) {
   const from = { name: site.name, address: config.user };
   const ack = acknowledgmentContent(inquiry);
   const notice = notificationContent(inquiry);
-  const audience = formatAudience(inquiry.audience);
 
   try {
     await Promise.all([
@@ -184,9 +181,18 @@ export async function sendContactEmails(inquiry: ContactInquiry) {
         from,
         to: config.to,
         replyTo: inquiry.email,
-        subject: `New inquiry from ${inquiry.name} (${audience})`,
+        subject: `${inquiry.intentLabel} from ${inquiry.name}`,
         text: notice.text,
         html: notice.html,
+        attachments: inquiry.attachment
+          ? [
+              {
+                filename: inquiry.attachment.filename,
+                content: inquiry.attachment.content,
+                contentType: inquiry.attachment.contentType,
+              },
+            ]
+          : undefined,
       }),
     ]);
   } finally {

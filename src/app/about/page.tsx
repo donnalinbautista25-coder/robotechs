@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Building2,
-  Users,
-} from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import PageHero from "@/components/PageHero";
-import { aboutProcess, aboutValues } from "@/lib/icons";
-import { site } from "@/lib/site";
+import { employmentHandles, site } from "@/lib/site";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Robotechs Inc.—our mission, values, and approach to specialist IT staffing.",
+    "Robotechs connects skilled technology professionals with enterprise opportunities and manages the full employment relationship.",
 };
 
 export default function AboutPage() {
@@ -21,42 +17,23 @@ export default function AboutPage() {
     <>
       <PageHero
         title="About Us"
-        description="Robotechs Inc. is a specialist IT staffing firm helping organizations and professionals make decisive, well-matched career and hiring moves."
+        description="Robotechs is an IT staffing and outsourcing company built to connect skilled technology professionals with enterprise-level opportunities."
       />
 
       <section className="section">
         <div className={`container ${styles.split}`}>
           <div>
-            <p className="eyebrow">Our story</p>
-            <h2>Built for technology hiring</h2>
+            <p className="eyebrow">Overview</p>
+            <h2>Talent placed through trusted workforce partners</h2>
             <div className="accent-rule" />
-            <div className={styles.audienceRow}>
-              <div className={styles.audienceChip}>
-                <Building2 size={18} aria-hidden="true" />
-                <span>For employers</span>
-              </div>
-              <div className={styles.audienceChip}>
-                <Users size={18} aria-hidden="true" />
-                <span>For professionals</span>
-              </div>
-            </div>
           </div>
           <div className={styles.prose}>
             <p>
-              Robotechs Inc. was founded on a simple belief: technology teams deserve
-              recruiters who understand their work. We specialize in connecting
-              skilled IT professionals with organizations that need capability,
-              reliability, and cultural fit—not just résumés.
-            </p>
-            <p>
-              Today we support employers across software, infrastructure, data,
-              security, and digital product organizations. Whether you are scaling
-              a product team or searching for a technology leader, we bring
-              structured search, market insight, and a human approach.
-            </p>
-            <p>
-              For candidates, we offer thoughtful representation—roles that match
-              your skills, compensation expectations, and career direction.
+              We work through established workforce and recruitment partners to
+              place qualified talent, including software engineers, database
+              administrators, cloud specialists, systems analysts, and
+              cybersecurity professionals, into contract, contract-to-hire,
+              project-based, and long-term assignments.
             </p>
           </div>
         </div>
@@ -64,19 +41,22 @@ export default function AboutPage() {
 
       <section className="section section--grey">
         <div className="container">
-          <p className="eyebrow">How we work</p>
-          <h2>A clear, collaborative process</h2>
+          <p className="eyebrow">How we operate</p>
+          <h2>Direct employment from onboarding through the assignment</h2>
           <div className="accent-rule" />
-          <ul className={styles.timeline}>
-            {aboutProcess.map(({ title, copy, icon: Icon }) => (
-              <li key={title}>
-                <span className={styles.iconBadge} aria-hidden="true">
-                  <Icon size={22} strokeWidth={1.7} />
-                </span>
-                <div>
-                  <strong>{title}</strong>
-                  <p>{copy}</p>
-                </div>
+          <p className="lead">
+            As a staffing and outsourcing provider, Robotechs identifies and
+            evaluates qualified candidates, matches them to opportunities
+            aligned with their skills and career objectives, and manages the
+            full employment relationship from onboarding through the life of
+            the assignment. Every professional placed through Robotechs is
+            directly employed by our company. We handle:
+          </p>
+          <ul className={styles.handles}>
+            {employmentHandles.map((item) => (
+              <li key={item}>
+                <CheckCircle2 size={16} aria-hidden="true" />
+                <span>{item}</span>
               </li>
             ))}
           </ul>
@@ -84,45 +64,67 @@ export default function AboutPage() {
       </section>
 
       <section className="section">
-        <div className="container">
-          <p className="eyebrow">Values</p>
-          <h2>What guides every engagement</h2>
-          <div className="accent-rule" />
-          <ul className={styles.values}>
-            {aboutValues.map(({ title, copy, icon: Icon }) => (
-              <li key={title} className={styles.value}>
-                <span className={styles.valueIcon} aria-hidden="true">
-                  <Icon size={24} strokeWidth={1.6} />
-                </span>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-              </li>
-            ))}
-          </ul>
+        <div className={`container ${styles.split}`}>
+          <div>
+            <p className="eyebrow">Our growth</p>
+            <h2>An enterprise-ready foundation</h2>
+            <div className="accent-rule" />
+            <div className={styles.prose}>
+              <p>
+                Robotechs is a newly established company built with an
+                enterprise-ready foundation. We currently support technology
+                professionals assigned to enterprise-scale projects through
+                strategic staffing partnerships, and we are actively expanding
+                as new client opportunities and project demand grow.
+              </p>
+            </div>
+          </div>
+          <div>
+            <p className="eyebrow">Our commitment</p>
+            <h2>Reliable talent, supported people</h2>
+            <div className="accent-rule" />
+            <div className={styles.prose}>
+              <p>
+                We are committed to delivering reliable technology talent
+                solutions while supporting the professional growth of our
+                employees and the evolving workforce needs of our clients and
+                partners.
+              </p>
+            </div>
+            <div className={styles.womenOwned}>
+              <p className={styles.womenOwnedLabel}>Proudly women-owned</p>
+              <div className={styles.womenOwnedBadges}>
+                <Image
+                  src="/badges/women-owned-seal.png"
+                  alt="Women Owned Business"
+                  width={72}
+                  height={72}
+                  className={styles.womenOwnedSeal}
+                />
+                <Image
+                  src="/badges/women-owned-logo.png"
+                  alt="Women Owned"
+                  width={90}
+                  height={89}
+                  className={styles.womenOwnedLogo}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="section section--navy">
         <div className="container">
           <p className="eyebrow">Work with us</p>
-          <h2>Let’s build your next chapter</h2>
+          <h2>Talk with {site.shortName}</h2>
           <div className="accent-rule" />
-          <p className="lead" style={{ marginBottom: "1.5rem" }}>
-            Whether you are hiring or exploring your next role, our team is ready
-            to help.
-          </p>
           <div className={styles.ctaRow}>
-            <Link
-              href="/contact?audience=employer"
-              className="btn btn--primary"
-            >
-              Partner with us <ArrowRight size={16} aria-hidden="true" />
+            <Link href="/partner" className="btn btn--primary">
+              Partner With Us <ArrowRight size={16} aria-hidden="true" />
             </Link>
-            <Link
-              href="/contact?audience=candidate"
-              className="btn btn--outline"
-            >
-              Contact {site.name}
+            <Link href="/careers" className="btn btn--outline">
+              Careers
             </Link>
           </div>
         </div>

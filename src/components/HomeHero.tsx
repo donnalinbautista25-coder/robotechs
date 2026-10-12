@@ -23,40 +23,40 @@ type PanelData = {
 
 const panels: Record<"hiring" | "talent", PanelData> = {
   hiring: {
-    eyebrow: "For employers",
-    title: "Partner with us",
-    copy: "Build high-performing technology teams with specialist IT recruiters who understand your stack, culture, and delivery goals.",
+    eyebrow: "For staffing partners",
+    title: "Partner With Us",
+    copy: "Robotechs acts as employer of record, payroll provider, and workforce management partner so staffing firms and MSPs can focus on placements.",
     points: [
-      "Calibrated shortlists, not résumé dumps",
-      "Permanent, contract, and hybrid models",
-      "Accountable support through every hire",
+      "Employer-of-record and payroll",
+      "Onboarding and compliance support",
+      "Enterprise-ready technical talent",
     ],
-    tags: ["Engineering", "Cloud", "Security", "Data"],
+    tags: ["Staffing firms", "MSPs", "Enterprise"],
     meta: [
-      { value: "120+", label: "Client partners" },
-      { value: "18+", label: "Industries" },
+      { value: "EOR", label: "Employer of record" },
+      { value: "7", label: "Industries" },
     ],
-    href: "/contact?audience=employer",
-    cta: "Start a search",
+    href: "/partner",
+    cta: "Partner With Us",
     image: "/images/partner-with-us.jpg",
     imageAlt: "Partners agreeing on a technology search",
   },
   talent: {
-    eyebrow: "For professionals",
-    title: "Find your next role",
-    copy: "Access curated technology opportunities with representation that aligns to your skills, compensation goals, and career path.",
+    eyebrow: "For recruiting partners",
+    title: "Submit Talent",
+    copy: "Staffing firms and recruiting partners can submit consultants for review against current and upcoming enterprise opportunities.",
     points: [
-      "Roles matched to your expertise",
-      "Transparent guidance through every step",
-      "Opportunities across modern IT stacks",
+      "A channel built for placing partners",
+      "Review against enterprise assignments",
+      "Separate from general inquiries",
     ],
-    tags: ["Full-stack", "DevOps", "Product", "AI"],
+    tags: ["Engineering", "Cloud", "Security", "Data"],
     meta: [
-      { value: "2,400+", label: "Placements" },
-      { value: "500+", label: "Employees" },
+      { value: "Direct", label: "Employment model" },
+      { value: "IT", label: "Specialist talent" },
     ],
-    href: "/contact?audience=candidate",
-    cta: "Explore opportunities",
+    href: "/submit-talent",
+    cta: "Submit Talent",
     image: "/images/find-your-next-role.jpg",
     imageAlt: "Technology professionals ready for their next role",
   },
@@ -126,7 +126,9 @@ export default function HomeHero() {
       className={`${styles.hero} ${active ? styles[`focus-${active}`] : styles.balanced}`}
       onMouseLeave={deactivate}
     >
-      <h1 className={styles.srOnly}>Robotechs Inc. IT staffing</h1>
+      <h1 className={styles.srOnly}>
+        Enterprise IT Talent. Delivered Through Trusted Partnerships.
+      </h1>
 
       <div className={styles.split} role="group" aria-label="Choose hiring or talent path">
         <article

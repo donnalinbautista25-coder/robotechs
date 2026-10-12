@@ -1,33 +1,19 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import ContactForm, { type Audience } from "@/components/ContactForm";
+import InquiryForm from "@/components/InquiryForm";
 import { contactHighlights } from "@/lib/icons";
 import { site } from "@/lib/site";
-import { Clock3, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Robotechs Inc. for IT staffing, recruitment support, or career opportunities.",
+    "Contact Robotechs whether you are a staffing partner, enterprise client, or technology professional.",
 };
 
-type ContactPageProps = {
-  searchParams: Promise<{ audience?: string }>;
-};
-
-function resolveAudience(value?: string): Audience {
-  if (value === "employer" || value === "candidate" || value === "other") {
-    return value;
-  }
-  // Default for Contact Us (nav / bare /contact) = candidate seeking roles
-  return "candidate";
-}
-
-export default async function ContactPage({ searchParams }: ContactPageProps) {
-  const params = await searchParams;
-  const defaultAudience = resolveAudience(params.audience);
-
+export default function ContactPage() {
   const details = [
     {
       label: "Email",
@@ -35,29 +21,32 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
       href: `mailto:${site.email}`,
       icon: Mail,
     },
-    {
-      label: "Phone",
-      value: site.phone,
-      href: `tel:${site.phone.replace(/[^\d+]/g, "")}`,
-      icon: Phone,
-    },
-    {
-      label: "Office",
-      value: site.address,
-      icon: MapPin,
-    },
-    {
-      label: "Hours",
-      value: site.hours,
-      icon: Clock3,
-    },
+    ...(site.phone
+      ? [
+          {
+            label: "Phone",
+            value: site.phone,
+            href: `tel:${site.phone.replace(/[^\d+]/g, "")}`,
+            icon: Phone,
+          },
+        ]
+      : []),
+    ...(site.address
+      ? [
+          {
+            label: "Address",
+            value: site.address,
+            icon: MapPin,
+          },
+        ]
+      : []),
   ];
 
   return (
     <>
       <PageHero
         title="Contact Us"
-        description="Whether you are hiring technology talent or exploring your next role, we would like to hear from you."
+        description="Get in touch with Robotechs."
       />
 
       <section className={`section--tight ${styles.highlights}`}>
@@ -77,21 +66,48 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
       <section className="section">
         <div className={`container ${styles.layout}`}>
           <div className={styles.formBlock}>
-            <p className="eyebrow">Send a message</p>
-            <h2>How can Robotechs Inc. help?</h2>
+            <p className="eyebrow">General inquiries</p>
+            <h2>Whether you are a partner, client, or professional</h2>
             <div className="accent-rule" />
-            <p className="lead" style={{ marginBottom: "1.75rem" }}>
-              Share a few details and a consultant will respond within one business day.
+            <p className="lead" style={{ marginBottom: "1rem" }}>
+              Whether you&apos;re a staffing partner, enterprise client, or
+              technology professional, we&apos;re glad to hear from you.
             </p>
-            <ContactForm defaultAudience={defaultAudience} />
+            <p style={{ marginBottom: "0.75rem" }}>
+              For staffing firms, recruiting partners, and MSPs looking to
+              collaborate, use our <Link href="/partner">Partner With Us</Link>{" "}
+              page for a dedicated inquiry form.
+            </p>
+            <p style={{ marginBottom: "1.75rem" }}>
+              For job seekers, visit our <Link href="/careers">Careers</Link>{" "}
+              page to submit your resume or sign up for job alerts.
+            </p>
+            <InquiryForm
+              intent="contact"
+              submitLabel="Send message"
+              fields={[
+                { name: "name", label: "Name", required: true, half: true },
+                { name: "company", label: "Company", half: true },
+                { name: "email", label: "Email", type: "email", required: true, half: true },
+                { name: "phone", label: "Phone", type: "tel", half: true },
+                {
+                  name: "inquiryType",
+                  label: "Inquiry type",
+                  type: "select",
+                  required: true,
+                  options: ["Staffing Partnership", "Client Services", "General Inquiry"],
+                },
+                { name: "message", label: "Message", type: "textarea", required: true },
+              ]}
+            />
           </div>
 
           <aside className={styles.panel}>
             <div className={styles.panelHeader}>
               <p className="eyebrow">Reach us</p>
-              <h2>Direct contact</h2>
+              <h2>Company contact</h2>
               <p className={styles.panelIntro}>
-                Prefer to talk directly? Use any of the details below.
+                Phone and office address will be added when they are confirmed.
               </p>
             </div>
             <ul className={styles.details}>

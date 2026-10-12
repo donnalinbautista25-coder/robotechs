@@ -35,7 +35,7 @@ export default function Header() {
       <header
         className={`${styles.header} ${scrolled ? styles.scrolled : ""} ${open ? styles.headerOpen : ""}`}
       >
-        <div className={`container ${styles.inner}`}>
+        <div className={styles.inner}>
           <Link href="/" className={styles.brand} aria-label={`${site.name} home`}>
             <Image
               src="/images/logo.png"
@@ -59,22 +59,37 @@ export default function Header() {
               const active =
                 link.href === "/"
                   ? pathname === "/"
-                  : pathname.startsWith(link.href.split("?")[0]);
+                  : pathname.startsWith(link.href);
+              const linkClass = `${styles.link} ${active ? styles.active : ""}`;
+
+              if (link.children) {
+                return (
+                  <div key={link.href} className={styles.item}>
+                    <Link href={link.href} className={linkClass}>
+                      {link.label}
+                    </Link>
+                    <div className={styles.submenu}>
+                      {link.children.map((child) => (
+                        <Link key={child.href} href={child.href} className={styles.sublink}>
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`${styles.link} ${active ? styles.active : ""}`}
-                >
+                <Link key={link.href} href={link.href} className={linkClass}>
                   {link.label}
                 </Link>
               );
             })}
-            <Link
-              href="/contact?audience=employer"
-              className={`btn btn--primary ${styles.cta}`}
-            >
-              Partner with us
+            <Link href="/submit-talent" className={`btn btn--outline ${styles.cta} ${styles.ctaGhost}`}>
+              Submit Talent
+            </Link>
+            <Link href="/partner" className={`btn btn--primary ${styles.cta}`}>
+              Partner With Us
             </Link>
           </nav>
 
@@ -108,22 +123,32 @@ export default function Header() {
             const active =
               link.href === "/"
                 ? pathname === "/"
-                : pathname.startsWith(link.href.split("?")[0]);
+                : pathname.startsWith(link.href);
             return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`${styles.mobileLink} ${active ? styles.mobileActive : ""}`}
-              >
-                {link.label}
-              </Link>
+              <div key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`${styles.mobileLink} ${active ? styles.mobileActive : ""}`}
+                >
+                  {link.label}
+                </Link>
+                {link.children?.map((child) => (
+                  <Link
+                    key={child.href}
+                    href={child.href}
+                    className={`${styles.mobileLink} ${styles.mobileChild} ${pathname === child.href ? styles.mobileActive : ""}`}
+                  >
+                    {child.label}
+                  </Link>
+                ))}
+              </div>
             );
           })}
-          <Link
-            href="/contact?audience=employer"
-            className={`btn btn--primary ${styles.mobileCta}`}
-          >
-            Partner with us
+          <Link href="/submit-talent" className={`btn btn--ghost ${styles.mobileCta} ${styles.mobileCtaFirst}`}>
+            Submit Talent
+          </Link>
+          <Link href="/partner" className={`btn btn--primary ${styles.mobileCta}`}>
+            Partner With Us
           </Link>
         </nav>
       </div>

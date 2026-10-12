@@ -43,6 +43,11 @@
   font-weight: 500;
 }
 
+.formBlock a {
+  color: var(--gold-deep);
+  font-weight: 500;
+}
+
 .panel {
   padding: 0;
   background: transparent;
@@ -124,7 +129,7 @@
 
 @media (min-width: 900px) {
   .highlightGrid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
   }
 

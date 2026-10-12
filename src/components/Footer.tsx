@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { navLinks, site } from "@/lib/site";
+import { footerLinks, navLinks, site } from "@/lib/site";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -31,9 +31,17 @@ export default function Footer() {
                 <Link href={link.href}>{link.label}</Link>
               </li>
             ))}
-            <li>
-              <Link href="/terms">Terms & Conditions</Link>
-            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>More</h3>
+          <ul>
+            {footerLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href}>{link.label}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -43,21 +51,23 @@ export default function Footer() {
             <li>
               <a href={`mailto:${site.email}`}>{site.email}</a>
             </li>
-            <li>
-              <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
-                {site.phone}
-              </a>
-            </li>
-            <li>{site.address}</li>
+            {site.phone ? (
+              <li>
+                <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
+                  {site.phone}
+                </a>
+              </li>
+            ) : null}
+            {site.address ? <li>{site.address}</li> : null}
           </ul>
         </div>
       </div>
 
       <div className={`container ${styles.bottom}`}>
         <p>
-          © {year} {site.name}. All rights reserved.
+          © {year} {site.name} All rights reserved.
         </p>
-        <Link href="/terms">Terms & Conditions</Link>
+        <Link href="/terms">Terms of Service</Link>
       </div>
     </footer>
   );

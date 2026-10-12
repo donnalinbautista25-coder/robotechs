@@ -34,8 +34,16 @@
   color: rgba(255, 255, 255, 0.58);
   font-size: 0.9rem;
   line-height: 1.55;
-  max-width: 16rem;
+  max-width: 22rem;
   margin-inline: auto;
+}
+
+.features .sectionHead h2 {
+  color: var(--white);
+}
+
+.features .eyebrow {
+  color: var(--gold-bright);
 }
 
 .aboutSection {
@@ -353,6 +361,34 @@
   letter-spacing: 0.02em;
 }
 
+.industryList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+  margin-top: 2rem;
+}
+
+.industryList li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--blue-deep);
+  font-weight: 500;
+}
+
+.industryList svg {
+  color: var(--gold);
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
 .ctaBand {
   display: grid;
   gap: 2rem;
@@ -389,7 +425,7 @@
 
 @media (min-width: 900px) {
   .featuresGrid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
 

@@ -55,6 +55,52 @@
   color: var(--gold);
 }
 
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.15rem;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.more:hover {
+  color: var(--gold-deep);
+}
+
+.steps {
+  list-style: none;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.stepIndex {
+  color: var(--gold);
+  font-weight: 500;
+  padding-top: 0.15rem;
+}
+
+.steps strong {
+  display: block;
+  color: var(--blue-deep);
+  margin-bottom: 0.35rem;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
 @media (min-width: 700px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);

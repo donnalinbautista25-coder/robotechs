@@ -10,6 +10,26 @@
   font-weight: 500;
 }
 
+.jobs h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  max-width: 16ch;
+  font-weight: 500;
+}
+
+.note {
+  margin-top: 1.75rem;
+  max-width: 40rem;
+}
+
+.note a {
+  color: var(--gold-deep);
+  font-weight: 500;
+}
+
+.resume {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
 @media (min-width: 900px) {
   .intro {
     grid-template-columns: 1.05fr 0.95fr;

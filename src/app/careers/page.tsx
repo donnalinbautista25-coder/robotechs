@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import InquiryForm from "@/components/InquiryForm";
 import CareerCarousel from "@/components/CareerCarousel";
+import JobBoard from "@/components/JobBoard";
+import { sampleJobs } from "@/lib/jobs";
 import { careerReasons } from "@/lib/site";
 import contact from "../contact/contact.module.css";
 import styles from "./careers.module.css";
@@ -41,6 +43,24 @@ export default function CareersPage() {
       </section>
 
       <section className="section section--grey">
+        <div className={`container ${styles.jobs}`}>
+          <p className="eyebrow">Sample openings</p>
+          <h2>Current opportunities</h2>
+          <div className="accent-rule" />
+          <p className="lead">
+            These roles are fixed examples of the assignments Robotechs staffs.
+            Select one to read the description.
+          </p>
+          <JobBoard jobs={sampleJobs} />
+          <p className={styles.note}>
+            Don&apos;t see a current fit?{" "}
+            <a href="#resume">Submit your resume</a> to join our talent database
+            and be considered for future opportunities as they arise.
+          </p>
+        </div>
+      </section>
+
+      <section id="resume" className={`section ${styles.resume}`}>
         <div className={`container ${contact.layout}`}>
           <div className={contact.formBlock}>
             <p className="eyebrow">Talent database</p>

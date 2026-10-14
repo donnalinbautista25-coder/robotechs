@@ -1,0 +1,132 @@
+.board {
+  display: grid;
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.list {
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 1.35rem 1rem 1.35rem 1.15rem;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+}
+
+.itemActive {
+  background: var(--grey-50);
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+
+.itemTitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--blue-deep);
+  letter-spacing: -0.015em;
+}
+
+.itemSummary {
+  color: var(--grey-700);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  margin: 0.35rem 0 0;
+  color: var(--grey-500);
+  font-size: 0.8125rem;
+}
+
+.detail {
+  padding: 1.75rem 0 0;
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
+.detail h3 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 500;
+  max-width: 16ch;
+}
+
+.detail h4 {
+  margin-top: 1.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.detail ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.detail li {
+  color: var(--grey-700);
+}
+
+.overview {
+  margin-top: 1rem;
+  max-width: 40rem;
+}
+
+.back {
+  display: inline-flex;
+  margin-bottom: 1.25rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--gold-deep);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.back::before {
+  content: "← ";
+}
+
+.apply {
+  margin-top: 2rem;
+}
+
+@media (max-width: 899px) {
+  .boardOpen .list {
+    display: none;
+  }
+
+  .board:not(.boardOpen) .detail {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .board {
+    grid-template-columns: minmax(18rem, 0.9fr) 1.2fr;
+    align-items: start;
+    border: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+  }
+
+  .list {
+    border-right: 1px solid var(--border);
+  }
+
+  .detail {
+    padding: 2rem 2.25rem 2.25rem;
+  }
+
+  .back {
+    display: none;
+  }
+}

@@ -30,6 +30,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
   color: var(--white);
 }
 
@@ -56,13 +57,19 @@
 }
 
 .tag {
-  display: none;
+  display: block;
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 300;
   letter-spacing: 0.01em;
+  line-height: 1.25;
+  text-align: center;
   color: var(--gold);
   white-space: nowrap;
+}
+
+.tagBreak {
+  display: none;
 }
 
 .tag strong {
@@ -79,9 +86,24 @@
   text-align: center;
 }
 
+@media (max-width: 520px) {
+  .name {
+    font-size: 1.05rem;
+  }
+
+  .tag {
+    white-space: normal;
+  }
+
+  .tagBreak {
+    display: inline;
+  }
+}
+
 @media (min-width: 1100px) {
   .tag {
-    display: block;
+    font-size: 0.6875rem;
+    line-height: 1.2;
   }
 }
 
@@ -182,6 +204,7 @@
 
 .menuBtn {
   display: inline-flex;
+  flex-shrink: 0;
   flex-direction: column;
   justify-content: center;
   gap: 5px;

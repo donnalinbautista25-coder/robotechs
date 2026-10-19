@@ -48,7 +48,8 @@ export default function Header() {
             <span className={styles.brandText}>
               <span className={styles.name}>{site.name}</span>
               <span className={styles.tag}>
-                Where <strong>Global Talent</strong> Meets <strong>Innovation</strong>
+                Where <strong>Global Talent</strong>
+                <br className={styles.tagBreak} /> Meets <strong>Innovation</strong>
               </span>
               <span className={styles.slogan}>We got IT</span>
             </span>
